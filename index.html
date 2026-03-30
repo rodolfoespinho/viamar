@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viamar — Travessias à Ilha da Berlenga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #07111f;
+      --navy-mid:   #0c1d33;
+      --blue:       #0f3460;
+      --aqua:       #06b6d4;
+      --aqua-dim:   rgba(6,182,212,0.15);
+      --gold:       #f59e0b;
+      --gold-hover: #d97706;
+      --white:      #ffffff;
+      --off:        #f0f4f8;
+      --g200:       #e2e8f0;
+      --g400:       #94a3b8;
+      --g600:       #475569;
+      --g800:       #1e293b;
+      --green:      #10b981;
+      --red:        #ef4444;
+      --r: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--g800); overflow-x: hidden; line-height: 1.6; }
+
+    /* ─── ANNOUNCEMENT BAR ─── */
+    .ann-bar {
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap;
+    }
+    .ann-bar strong { font-weight: 800; }
+    .ann-bar .ann-sep { opacity: 0.35; margin: 0 4px; }
+    .ann-bar a { color: var(--navy); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(7,17,31,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; }
+    .nav-logo-img { height: 40px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--navy) !important;
+      padding: 9px 20px; border-radius: 8px;
+      font-weight: 700 !important; font-size: 13.5px !important;
+      transition: background .2s, transform .1s !important;
+    }
+    .nav-cta:hover { background: var(--gold-hover) !important; transform: translateY(-1px); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-lang { font-size: 12px; color: rgba(255,255,255,0.3); cursor: pointer; letter-spacing: 1px; }
+    .nav-phone { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; }
+    .nav-phone:hover { color: #fff; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100svh; min-height: 640px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-slides {
+      position: absolute; inset: 0;
+      display: grid; grid-template-columns: 1fr;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(7,17,31,0.92) 0%,
+        rgba(7,17,31,0.45) 45%,
+        rgba(7,17,31,0.1) 100%
+      );
+    }
+    /* Fallback gradients when images not yet loaded */
+    .hero-slide:nth-child(1) { background-color: #0a2440; background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.png'); }
+    .hero-slide:nth-child(2) { background-color: #0d3b2e; background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.png'); }
+    .hero-slide:nth-child(3) { background-color: #1a1a2e; background-image: url('img/freepik__enhance-the-cinematic-feel-of-this-shot__34300.png'); }
+
+    .hero-content {
+      position: relative; z-index: 10;
+      width: 100%; max-width: 1400px; margin: 0 auto;
+      padding: 0 48px 64px;
+      display: grid; grid-template-columns: 1fr 400px;
+      gap: 48px; align-items: end;
+    }
+    .hero-left { }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(245,158,11,0.5);
+      background: rgba(245,158,11,0.1);
+      color: var(--gold); font-size: 11px; font-weight: 700;
+      padding: 5px 12px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.0; letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .hero-h1 .line2 {
+      font-style: italic; color: var(--aqua);
+      display: block;
+    }
+    .hero-sub {
+      font-size: 17px; color: rgba(255,255,255,0.65);
+      max-width: 520px; line-height: 1.75; margin-bottom: 36px;
+    }
+    .hero-proof {
+      display: flex; align-items: center; gap: 24px; margin-bottom: 36px;
+    }
+    .proof-item { display: flex; flex-direction: column; }
+    .proof-num { font-size: 26px; font-weight: 800; color: #fff; line-height: 1; }
+    .proof-label { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; letter-spacing: 0.3px; }
+    .proof-div { width: 1px; height: 36px; background: rgba(255,255,255,0.15); }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--navy);
+      font-weight: 800; font-size: 15px;
+      padding: 16px 32px; border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 0 0 0 rgba(245,158,11,0.4);
+      animation: pulse-gold 2.5s infinite;
+      transition: background .2s, transform .15s;
+    }
+    @keyframes pulse-gold {
+      0%   { box-shadow: 0 0 0 0 rgba(245,158,11,0.45); }
+      60%  { box-shadow: 0 0 0 14px rgba(245,158,11,0); }
+      100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+    }
+    .btn-hero-primary:hover { background: var(--gold-hover); transform: translateY(-2px); animation: none; }
+    .btn-hero-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500;
+      text-decoration: none;
+      padding: 14px 22px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all .2s;
+    }
+    .btn-hero-ghost:hover { border-color: rgba(255,255,255,0.6); color: #fff; background: rgba(255,255,255,0.05); }
+
+    /* Slide indicators */
+    .hero-dots {
+      position: absolute; bottom: 28px; left: 48px; z-index: 20;
+      display: flex; gap: 8px;
+    }
+    .hero-dot {
+      width: 28px; height: 3px; border-radius: 2px;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer; transition: background .3s, width .3s;
+    }
+    .hero-dot.active { background: var(--gold); width: 44px; }
+
+    /* ─── INLINE BOOKING CARD ─── */
+    .booking-float {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    }
+    .bf-title { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .bf-sub { font-size: 12px; color: var(--g400); margin-bottom: 16px; }
+    .avail-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: #ecfdf5; border: 1px solid #6ee7b7;
+      border-radius: 8px; padding: 9px 12px; margin-bottom: 14px;
+    }
+    .avail-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: blink 1.8s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .avail-txt { font-size: 12.5px; font-weight: 600; color: #065f46; flex: 1; }
+    .spots-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: var(--red); padding: 2px 8px; border-radius: 100px; }
+    .bf-select {
+      width: 100%; border: 1.5px solid var(--g200); border-radius: 8px;
+      padding: 11px 14px; font-size: 13.5px; color: var(--g800);
+      background: var(--off); margin-bottom: 10px;
+      font-family: 'Inter', sans-serif; appearance: none; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+    }
+    .bf-select:focus { outline: none; border-color: var(--aqua); }
+    .pax-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .pax-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--g400); margin-bottom: 5px; }
+    .pax-ctrl { display: flex; align-items: center; border: 1.5px solid var(--g200); border-radius: 8px; overflow: hidden; }
+    .pax-btn { width: 34px; height: 36px; border: none; background: var(--off); font-size: 17px; color: var(--g600); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+    .pax-btn:hover { background: var(--g200); }
+    .pax-val { flex: 1; text-align: center; font-size: 15px; font-weight: 700; color: var(--navy); }
+    .price-box { background: var(--off); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
+    .price-line { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--g600); margin-bottom: 4px; }
+    .price-line:last-child { font-weight: 800; font-size: 14px; color: var(--navy); border-top: 1px solid var(--g200); padding-top: 8px; margin-bottom: 0; margin-top: 4px; }
+    .btn-book-now {
+      width: 100%; background: var(--navy); color: #fff;
+      font-weight: 800; font-size: 15px;
+      padding: 15px; border: none; border-radius: 10px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all .2s;
+      box-shadow: 0 4px 16px rgba(7,17,31,0.25);
+    }
+    .btn-book-now:hover { background: #0f2040; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(7,17,31,0.35); }
+    .bf-footer { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 11.5px; color: var(--g400); }
+
+    /* ─── URGENCY STRIP ─── */
+    .urgency {
+      background: linear-gradient(90deg, #1e1b4b, #312e81, #1e1b4b);
+      background-size: 200% 100%;
+      animation: gradshift 4s ease infinite;
+      color: #fff; text-align: center; padding: 13px 16px;
+      font-size: 13.5px; font-weight: 500;
+    }
+    @keyframes gradshift { 0%,100%{background-position:0%} 50%{background-position:100%} }
+    .urgency strong { font-weight: 800; color: #fde68a; }
+    #countdown { font-weight: 800; color: #fde68a; }
+
+    /* ─── TRUST STRIP ─── */
+    .trust-strip { border-bottom: 1px solid var(--g200); }
+    .trust-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 40px;
+      display: flex; align-items: stretch;
+      overflow-x: auto;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 32px; flex-shrink: 0;
+      border-right: 1px solid var(--g200);
+    }
+    .trust-item:first-child { padding-left: 0; }
+    .trust-item:last-child { border-right: none; }
+    .ti-icon { font-size: 22px; }
+    .ti-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .ti-text span { font-size: 11.5px; color: var(--g400); }
+
+    /* ─── SECTION COMMONS ─── */
+    .sec { padding: 88px 40px; }
+    .sec-inner { max-width: 1280px; margin: 0 auto; }
+    .sec-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--aqua); margin-bottom: 10px; }
+    .sec-h { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); color: var(--navy); line-height: 1.1; margin-bottom: 14px; font-weight: 900; }
+    .sec-sub { font-size: 16px; color: var(--g600); max-width: 540px; line-height: 1.75; margin-bottom: 52px; }
+
+    /* ─── VISUAL SPLIT — THE ISLAND ─── */
+    .island-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 580px;
+    }
+    .island-img {
+      background: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.png') center/cover no-repeat;
+      background-color: #0d3b2e;
+      position: relative;
+    }
+    .island-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 70%, var(--white));
+    }
+    .island-text {
+      display: flex; align-items: center;
+      padding: 64px 64px 64px 48px;
+      background: var(--white);
+    }
+    .island-text-inner { }
+    .island-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--aqua-dim); color: var(--aqua);
+      font-size: 11px; font-weight: 700; padding: 5px 12px;
+      border-radius: 100px; margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--aqua);
+    }
+    .island-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 900; color: var(--navy); line-height: 1.1; margin-bottom: 16px; }
+    .island-text h2 em { font-style: italic; color: var(--aqua); }
+    .island-text p { font-size: 15.5px; color: var(--g600); line-height: 1.75; margin-bottom: 28px; }
+    .island-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+    .island-fact { background: var(--off); border-radius: 10px; padding: 16px; }
+    .island-fact .num { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .island-fact .lbl { font-size: 11.5px; color: var(--g400); margin-top: 2px; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      font-weight: 800; font-size: 14px;
+      padding: 14px 28px; border-radius: 9px;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-cta:hover { background: var(--gold-hover); transform: translateY(-2px); }
+
+    /* ─── PACKAGES ─── */
+    .packages-sec { background: var(--navy); }
+    .packages-sec .sec-h { color: #fff; }
+    .packages-sec .sec-sub { color: rgba(255,255,255,0.55); }
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (min-width: 961px) {
+      .pkg-grid { grid-template-columns: repeat(3, 1fr); }
+      .pkg-grid .pkg-card:nth-child(4) { grid-column: 1 / 2; }
+      .pkg-grid .pkg-card:nth-child(5) { grid-column: 2 / 3; }
+    }
+    .pkg-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--r); padding: 28px;
+      transition: all .25s; cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .pkg-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: transparent; transition: background .25s;
+    }
+    .pkg-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
+    .pkg-card:hover::before { background: var(--aqua); }
+    .pkg-card.featured { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.3); }
+    .pkg-card.featured::before { background: var(--aqua); }
+    .pkg-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      padding: 3px 9px; border-radius: 100px; margin-bottom: 16px;
+      text-transform: uppercase; letter-spacing: .8px;
+    }
+    .pkg-badge.pop { background: var(--aqua); color: var(--navy); }
+    .pkg-badge.gold { background: var(--gold); color: var(--navy); }
+    .pkg-icon { width: 48px; height: 48px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.07); border-radius: 12px; }
+    .pkg-icon svg { width: 24px; height: 24px; stroke: rgba(255,255,255,0.8); }
+    .pkg-name { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .pkg-desc { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 20px; }
+    .pkg-list { list-style: none; margin-bottom: 24px; }
+    .pkg-list li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; }
+    .pkg-list li::before { content: '✓'; color: var(--aqua); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pkg-price { margin-bottom: 20px; }
+    .pkg-from { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .pkg-amount { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; }
+    .pkg-unit { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .btn-pkg {
+      width: 100%; padding: 13px; border: 1.5px solid rgba(255,255,255,0.2);
+      background: transparent; color: #fff; border-radius: 8px;
+      font-weight: 700; font-size: 14px; cursor: pointer;
+      transition: all .2s; font-family: 'Inter', sans-serif;
+    }
+    .btn-pkg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+    .btn-pkg.solid { background: var(--aqua); border-color: var(--aqua); color: var(--navy); }
+    .btn-pkg.solid:hover { background: #0891b2; border-color: #0891b2; }
+
+    /* ─── PHOTO GALLERY ─── */
+    .gallery-sec { background: var(--off); padding: 0; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      grid-template-rows: 300px 300px;
+      gap: 3px;
+    }
+    .gal-item {
+      background-size: cover; background-position: center;
+      position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .gal-item:nth-child(1) {
+      grid-row: 1 / 3;
+      background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.png');
+      background-color: #0d3b2e;
+    }
+    .gal-item:nth-child(2) {
+      background-image: url('img/freepik__enhance-the-cinematic-feel-of-this-shot__34300.png');
+      background-color: #1a2a1a;
+    }
+    .gal-item:nth-child(3) {
+      background-image: url('img/IMG_0984.jpg');
+      background-color: #0a1628;
+    }
+    .gal-item:nth-child(4) {
+      background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34299.png');
+      background-color: #2d1a0e;
+    }
+    .gal-item:nth-child(5) {
+      background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.png');
+      background-color: #0a2440;
+    }
+    .gal-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(7,17,31,0); transition: background .3s;
+    }
+    .gal-item:hover::after { background: rgba(7,17,31,0.3); }
+    .gal-label {
+      position: absolute; bottom: 14px; left: 14px; z-index: 2;
+      background: rgba(7,17,31,0.65); backdrop-filter: blur(8px);
+      color: #fff; font-size: 12px; font-weight: 600;
+      padding: 5px 11px; border-radius: 100px;
+      opacity: 0; transform: translateY(6px); transition: all .3s;
+    }
+    .gal-item:hover .gal-label { opacity: 1; transform: translateY(0); }
+
+    /* ─── REVIEWS ─── */
+    .reviews-sec { background: var(--navy); }
+    .reviews-sec .sec-h { color: #fff; }
+    .reviews-sec .sec-sub { color: rgba(255,255,255,0.5); }
+    .reviews-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 48px; gap: 24px;
+    }
+    .reviews-top > div:first-child { flex: 1; }
+    .rating-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 24px 28px;
+      display: flex; align-items: center; gap: 20px; flex-shrink: 0;
+    }
+    .r-score { font-size: 56px; font-weight: 900; color: #fff; line-height: 1; }
+    .r-stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; }
+    .r-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .r-google { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: rgba(255,255,255,0.35); margin-top: 8px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .rev-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 22px;
+      transition: background .2s, border-color .2s;
+    }
+    .rev-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+    .rev-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+    .rev-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .rev-author { display: flex; align-items: center; gap: 10px; }
+    .rev-av { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .rev-name { font-size: 13.5px; font-weight: 700; color: #fff; }
+    .rev-org { font-size: 11.5px; color: rgba(255,255,255,0.35); }
+    .rev-date { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 2px; }
+
+    /* ─── BOAT FEATURE ─── */
+    .boat-sec {
+      position: relative; overflow: hidden; min-height: 480px;
+      display: flex; align-items: center;
+    }
+    .boat-bg {
+      position: absolute; inset: 0;
+      background: url('img/IMG_0984.jpg') center/cover no-repeat;
+      background-color: #0a1628;
+    }
+    .boat-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(7,17,31,0.92) 50%, rgba(7,17,31,0.4) 100%);
+    }
+    .boat-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto; padding: 72px 40px;
+      display: grid; grid-template-columns: 520px 1fr; gap: 64px; align-items: center;
+    }
+    .boat-text { }
+    .boat-text .sec-tag { }
+    .boat-text .sec-h { color: #fff; margin-bottom: 14px; }
+    .boat-text p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 28px; }
+    .boat-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .bspec { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; }
+    .bspec .num { font-size: 24px; font-weight: 800; color: var(--aqua); }
+    .bspec .lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+
+    /* ─── SCHEDULES ─── */
+    .sched-sec { background: var(--off); }
+    .sched-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .sched-card { background: #fff; border-radius: var(--r); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .sched-head {
+      background: var(--navy); color: #fff; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .sched-season { font-size: 15px; font-weight: 800; }
+    .sched-dates { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .sched-rows { }
+    .sched-row {
+      display: flex; align-items: center; padding: 14px 24px;
+      border-bottom: 1px solid var(--off);
+      transition: background .15s;
+    }
+    .sched-row:last-child { border-bottom: none; }
+    .sched-row:hover { background: var(--off); }
+    .sched-time { font-size: 16px; font-weight: 800; color: var(--navy); width: 72px; }
+    .sched-dir { flex: 1; font-size: 13px; color: var(--g600); display: flex; align-items: center; gap: 6px; }
+    .sched-arrow { color: var(--aqua); font-size: 14px; }
+    .sched-tag { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 100px; }
+    .sched-tag.ok { background: #ecfdf5; color: #065f46; }
+    .sched-tag.low { background: #fef3c7; color: #92400e; }
+    .sched-tag.full { background: #fee2e2; color: #991b1b; }
+
+    /* ─── EMAIL CAPTURE ─── */
+    .capture-sec {
+      position: relative; overflow: hidden;
+      background: var(--navy); padding: 88px 40px;
+    }
+    .capture-bg {
+      position: absolute; inset: 0;
+      background: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34299.png') center/cover no-repeat;
+      background-color: #1a0e05;
+      opacity: 0.2;
+    }
+    .capture-inner {
+      position: relative; z-index: 2;
+      max-width: 640px; margin: 0 auto; text-align: center;
+    }
+    .capture-inner .sec-tag { justify-content: center; display: flex; }
+    .capture-inner .sec-h { color: #fff; }
+    .cap-sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+    .cap-form { display: flex; gap: 10px; }
+    .cap-input {
+      flex: 1; padding: 14px 18px; border-radius: 9px; border: 1.5px solid rgba(255,255,255,0.15);
+      font-size: 15px; font-family: 'Inter',sans-serif;
+      background: rgba(255,255,255,0.06); color: #fff;
+    }
+    .cap-input::placeholder { color: rgba(255,255,255,0.35); }
+    .cap-input:focus { outline: none; border-color: var(--gold); }
+    .btn-cap { background: var(--gold); color: var(--navy); font-weight: 800; font-size: 14px; padding: 14px 24px; border: none; border-radius: 9px; cursor: pointer; white-space: nowrap; transition: background .2s; }
+    .btn-cap:hover { background: var(--gold-hover); }
+    .cap-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 12px; }
+
+    /* ─── FAQ ─── */
+    .faq-sec { }
+    .faq-wrap { max-width: 760px; }
+    .faq-item { border-bottom: 1px solid var(--g200); }
+    .faq-q {
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 20px 0; font-size: 15.5px; font-weight: 700; color: var(--navy);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Inter',sans-serif; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-icon { font-size: 20px; color: var(--g400); transition: transform .25s; flex-shrink: 0; margin-left: 16px; }
+    .faq-q.open .faq-icon { transform: rotate(45deg); color: var(--aqua); }
+    .faq-a { font-size: 14.5px; color: var(--g600); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s; }
+    .faq-a.open { max-height: 250px; padding-bottom: 20px; }
+
+    /* ─── DEPARTURE SECTION ─── */
+    .depart-sec {
+      position: relative; overflow: hidden; min-height: 420px;
+      display: flex; align-items: center;
+      background: var(--navy);
+    }
+    .depart-bg {
+      position: absolute; inset: 0;
+      background: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34299.png') center/cover no-repeat;
+      background-color: #1a0e05;
+    }
+    .depart-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(7,17,31,0.85) 45%, rgba(7,17,31,0.2) 100%);
+    }
+    .depart-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto; padding: 72px 40px;
+    }
+    .depart-content .sec-h { color: #fff; max-width: 520px; }
+    .depart-content p { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 440px; line-height: 1.75; margin-bottom: 32px; }
+    .depart-addr {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 14px 18px; display: inline-flex;
+      margin-bottom: 28px;
+    }
+    .depart-addr span { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #040b14; color: rgba(255,255,255,0.5); padding: 56px 40px 32px; }
+    .footer-grid {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px;
+    }
+    .footer-brand em { color: var(--aqua); font-style: normal; }
+    .footer-desc { font-size: 13px; line-height: 1.8; margin-bottom: 18px; }
+    .footer-contact { font-size: 13px; line-height: 2.1; }
+    .footer-contact a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-contact a:hover { color: #fff; }
+    .foot-title { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #fff; margin-bottom: 14px; }
+    .foot-links { list-style: none; }
+    .foot-links li { margin-bottom: 8px; }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s; }
+    .foot-links a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1280px; margin: 0 auto;
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: rgba(255,255,255,0.2);
+    }
+    .footer-certs { display: flex; gap: 16px; align-items: center; }
+    .cert-badge {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px; padding: 5px 10px; font-size: 11px; color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── WHATSAPP ─── */
+    .wa-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px; background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.55);
+      cursor: pointer; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.65); }
+    .wa-btn svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-tip {
+      position: absolute; right: 66px; background: var(--g800); color: #fff;
+      font-size: 12.5px; font-weight: 500; padding: 7px 13px; border-radius: 7px;
+      white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s;
+    }
+    .wa-tip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); border: 6px solid transparent; border-left-color: var(--g800); border-right: none; }
+    .wa-btn:hover .wa-tip { opacity: 1; }
+
+    /* ─── ICONS ─── */
+    .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon svg { display: block; }
+    .ti-icon { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--off); border-radius: 8px; flex-shrink: 0; }
+    .ti-icon svg { width: 18px; height: 18px; stroke: var(--navy); }
+    .btn-hero-primary .icon svg,
+    .btn-hero-ghost .icon svg { width: 16px; height: 16px; }
+    .btn-book-now .icon svg { width: 16px; height: 16px; stroke: #fff; }
+    .avail-pill .icon svg { width: 13px; height: 13px; stroke: var(--red); }
+    .bf-footer .icon svg { width: 13px; height: 13px; stroke: var(--g400); }
+    .hero-badge .icon svg { width: 12px; height: 12px; stroke: var(--gold); }
+    .depart-addr .icon svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.6); }
+    .footer-contact .icon svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.5); }
+    .island-pill .icon svg { width: 12px; height: 12px; stroke: var(--aqua); }
+    .pkg-badge .icon svg { width: 11px; height: 11px; stroke: var(--navy); }
+    .urgency .icon svg { width: 15px; height: 15px; stroke: #fde68a; vertical-align: middle; }
+
+    /* Trust strip: hide scrollbar */
+    .trust-inner { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .trust-inner::-webkit-scrollbar { display: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-content { grid-template-columns: 1fr; padding: 0 20px 96px; }
+      .booking-float { display: none; }
+      .island-split { grid-template-columns: 1fr; }
+      .island-img { height: 300px; }
+      .island-img::after { background: linear-gradient(to bottom, transparent 60%, var(--white)); }
+      .island-text { padding: 40px 24px; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gal-item:nth-child(1) { grid-row: auto; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-top { flex-direction: column; }
+      .boat-content { grid-template-columns: 1fr; }
+      .sched-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cap-form { flex-direction: column; }
+      .sec { padding: 56px 20px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-proof { flex-wrap: wrap; gap: 16px; }
+      .proof-div { display: none; }
+      .ann-bar { font-size: 12px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .boat-specs { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANN BAR -->
+<div class="ann-bar">
+  <strong>Fins-de-semana de Abril quase esgotados</strong>
+  <span class="ann-sep">·</span>
+  Alta temporada a aproximar-se
+  <span class="ann-sep">·</span>
+  <a href="#reservar">Garantir o meu lugar →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="img/logo viamar.png" alt="Viamar Ferry Berlenga" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#horarios">Horários</a></li>
+    <li><a href="#pacotes">Pacotes</a></li>
+    <li><a href="#galeria">A Ilha</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#reservar" class="nav-cta">Reservar agora →</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+351911001099" class="nav-phone">+351 911 001 099</a>
+    <span class="nav-lang">PT | EN</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="icon"><i data-lucide="landmark"></i></span> Património Mundial UNESCO</div>
+      <h1 class="hero-h1">
+        A travessia para a
+        <span class="line2">Ilha da Berlenga</span>
+      </h1>
+      <p class="hero-sub">
+        Há mais de 60 anos a levar famílias e aventureiros à reserva natural mais bonita de Portugal.
+        A viagem já faz parte da experiência.
+      </p>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <span class="proof-num">18k+</span>
+          <span class="proof-label">passageiros/ano</span>
+        </div>
+        <div class="proof-div"></div>
+        <div class="proof-item">
+          <span class="proof-num">4.8★</span>
+          <span class="proof-label">Google Reviews</span>
+        </div>
+        <div class="proof-div"></div>
+        <div class="proof-item">
+          <span class="proof-num">60+</span>
+          <span class="proof-label">anos de travessias</span>
+        </div>
+        <div class="proof-div"></div>
+        <div class="proof-item">
+          <span class="proof-num">847</span>
+          <span class="proof-label">avaliações</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#reservar" class="btn-hero-primary"><span class="icon"><i data-lucide="calendar"></i></span> Reservar travessia</a>
+        <a href="#galeria" class="btn-hero-ghost">Ver a ilha <span class="icon"><i data-lucide="arrow-right"></i></span></a>
+      </div>
+    </div>
+
+    <!-- BOOKING WIDGET -->
+    <div class="booking-float" id="reservar">
+      <div class="bf-title">Reservar travessia</div>
+      <div class="bf-sub">Escolhe data · Confirma · Embarca</div>
+      <div class="avail-pill">
+        <div class="avail-dot"></div>
+        <span class="avail-txt">Disponível para reserva</span>
+        <span class="spots-badge"><span class="icon"><i data-lucide="alert-triangle"></i></span> Poucos lugares</span>
+      </div>
+      <select class="bf-select">
+        <option>Seleciona uma data</option>
+        <option>Sábado, 5 Abril — 9h00</option>
+        <option>Domingo, 6 Abril — 9h00</option>
+        <option>Sábado, 12 Abril — 9h00</option>
+        <option>Domingo, 13 Abril — 9h00</option>
+        <option>Sábado, 19 Abril — 9h00</option>
+        <option>Domingo, 20 Abril — 9h00</option>
+      </select>
+      <select class="bf-select">
+        <option>Ida e Volta (recomendado)</option>
+        <option>→ Só Ida</option>
+        <option>← Só Volta</option>
+      </select>
+      <div class="pax-row">
+        <div class="pax-group">
+          <label>Adultos</label>
+          <div class="pax-ctrl">
+            <button class="pax-btn" onclick="adj('a',-1)">−</button>
+            <span class="pax-val" id="aVal">2</span>
+            <button class="pax-btn" onclick="adj('a',1)">+</button>
+          </div>
+        </div>
+        <div class="pax-group">
+          <label>Crianças</label>
+          <div class="pax-ctrl">
+            <button class="pax-btn" onclick="adj('k',-1)">−</button>
+            <span class="pax-val" id="kVal">0</span>
+            <button class="pax-btn" onclick="adj('k',1)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="price-box" id="priceBox">
+        <div class="price-line"><span>2 Adultos × 22€</span><span>44,00€</span></div>
+        <div class="price-line"><span>BerlengasPass × 2 <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>6,00€</span></div>
+        <div class="price-line"><span>Total</span><span>50,00€</span></div>
+      </div>
+      <button class="btn-book-now" onclick="alert('Checkout FareHarbor integrado aqui — sem redirect')">
+        <span class="icon"><i data-lucide="ticket"></i></span> Confirmar reserva
+      </button>
+      <div class="bf-footer"><span class="icon"><i data-lucide="lock"></i></span> Pagamento seguro · Cancelamento gratuito 48h antes</div>
+    </div>
+  </div>
+
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<div class="urgency">
+  <span class="icon"><i data-lucide="clock"></i></span> Próxima saída disponível: <strong>Sábado, 5 de Abril — 9h00</strong>
+  &nbsp;·&nbsp; Esta sessão expira em <span id="countdown">14:59</span>
+  &nbsp;·&nbsp; <strong>12 lugares restantes</strong>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="ti-icon"><i data-lucide="anchor"></i></span>
+      <div class="ti-text">
+        <strong>Operador Licenciado IMT</strong>
+        <span>Autoridade Marítima Nacional</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-icon"><i data-lucide="shield-check"></i></span>
+      <div class="ti-text">
+        <strong>Seguro de Passageiros</strong>
+        <span>Cobertura total incluída</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-icon"><i data-lucide="leaf"></i></span>
+      <div class="ti-text">
+        <strong>BerlengasPass incluído</strong>
+        <span>Taxa de conservação da ilha</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-icon"><i data-lucide="smartphone"></i></span>
+      <div class="ti-text">
+        <strong>Bilhete Digital</strong>
+        <span>QR code no telemóvel</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-icon"><i data-lucide="rotate-ccw"></i></span>
+      <div class="ti-text">
+        <strong>Cancelamento Gratuito</strong>
+        <span>Até 48h antes da partida</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ISLAND SPLIT -->
+<div class="island-split" id="galeria">
+  <div class="island-img"></div>
+  <div class="island-text">
+    <div class="island-text-inner">
+      <div class="island-pill"><span class="icon"><i data-lucide="waves"></i></span> Reserva Natural</div>
+      <h2>Uma ilha que <em>não se esquece</em></h2>
+      <p>A Berlenga é a única ilha habitada do arquipélago das Berlengas — Reserva da Biosfera da UNESCO desde 1984. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.</p>
+      <div class="island-facts">
+        <div class="island-fact">
+          <div class="num">40 min</div>
+          <div class="lbl">de travessia desde Peniche</div>
+        </div>
+        <div class="island-fact">
+          <div class="num">1 km²</div>
+          <div class="lbl">de ilha para explorar</div>
+        </div>
+        <div class="island-fact">
+          <div class="num">UNESCO</div>
+          <div class="lbl">Reserva da Biosfera</div>
+        </div>
+        <div class="island-fact">
+          <div class="num">1509</div>
+          <div class="lbl">Fortaleza histórica</div>
+        </div>
+      </div>
+      <a href="#reservar" class="btn-cta">Reservar agora →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO GALLERY -->
+<div class="gallery-grid">
+  <div class="gal-item">
+    <div class="gal-label">Praia da Berlenga</div>
+  </div>
+  <div class="gal-item">
+    <div class="gal-label">Vista panorâmica</div>
+  </div>
+  <div class="gal-item">
+    <div class="gal-label">A bordo</div>
+  </div>
+  <div class="gal-item">
+    <div class="gal-label">Partida de Peniche</div>
+  </div>
+  <div class="gal-item">
+    <div class="gal-label">A ilha ao longe</div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="sec packages-sec" id="pacotes">
+  <div class="sec-inner">
+    <div class="sec-tag">O que queres fazer?</div>
+    <h2 class="sec-h">Escolhe a tua experiência</h2>
+    <p class="sec-sub">Desde a travessia simples até pacotes completos com atividades — temos algo para cada aventureiro.</p>
+    <div class="pkg-grid">
+
+      <div class="pkg-card">
+        <span class="pkg-badge gold">Bilhete simples</span>
+        <span class="pkg-icon"><i data-lucide="arrow-right"></i></span>
+        <div class="pkg-name">Bilhete de Ida</div>
+        <div class="pkg-desc">Só precisas de chegar à Berlenga — bilhete de ida de Peniche. Volta quando quiseres com outra operadora.</div>
+        <ul class="pkg-list">
+          <li>Peniche → Berlenga</li>
+          <li>45 min de travessia</li>
+          <li>BerlengasPass incluído</li>
+          <li>Bilhete digital QR</li>
+        </ul>
+        <div class="pkg-price">
+          <div class="pkg-from">A partir de</div>
+          <div><span class="pkg-amount">14€</span> <span class="pkg-unit">/ adulto · 8€ criança</span></div>
+        </div>
+        <button class="btn-pkg">Reservar</button>
+      </div>
+
+      <div class="pkg-card">
+        <span class="pkg-badge gold">Bilhete simples</span>
+        <span class="pkg-icon"><i data-lucide="arrow-left"></i></span>
+        <div class="pkg-name">Bilhete de Volta</div>
+        <div class="pkg-desc">Já estás na Berlenga e precisas de regressar a Peniche. Reserva o teu lugar de regresso.</div>
+        <ul class="pkg-list">
+          <li>Berlenga → Peniche</li>
+          <li>45 min de travessia</li>
+          <li>BerlengasPass incluído</li>
+          <li>Bilhete digital QR</li>
+        </ul>
+        <div class="pkg-price">
+          <div class="pkg-from">A partir de</div>
+          <div><span class="pkg-amount">14€</span> <span class="pkg-unit">/ adulto · 8€ criança</span></div>
+        </div>
+        <button class="btn-pkg">Reservar</button>
+      </div>
+
+      <div class="pkg-card featured">
+        <span class="pkg-badge pop"><span class="icon"><i data-lucide="star"></i></span> Mais popular</span>
+        <span class="pkg-icon"><i data-lucide="anchor"></i></span>
+        <div class="pkg-name">Visita à Ilha da Berlenga</div>
+        <div class="pkg-desc">Travessia ida e volta + dia livre na ilha para explorar as praias, falésias e a Fortaleza histórica.</div>
+        <ul class="pkg-list">
+          <li>Peniche → Berlenga → Peniche</li>
+          <li>45 min de travessia cada sentido</li>
+          <li>Dia livre na ilha</li>
+          <li>BerlengasPass incluído</li>
+          <li>Bilhete digital QR</li>
+        </ul>
+        <div class="pkg-price">
+          <div class="pkg-from">A partir de</div>
+          <div><span class="pkg-amount">22€</span> <span class="pkg-unit">/ adulto · 12€ criança</span></div>
+        </div>
+        <button class="btn-pkg solid">Reservar</button>
+      </div>
+
+      <div class="pkg-card">
+        <span class="pkg-badge" style="background:rgba(6,182,212,0.15);color:var(--aqua);border:1px solid var(--aqua)">Aventura</span>
+        <span class="pkg-icon"><i data-lucide="fish"></i></span>
+        <div class="pkg-name">Atividades na Ilha</div>
+        <div class="pkg-desc">Travessia + atividade à escolha — snorkeling, mergulho, caiaque ou passeio de barco pelas grutas marinhas.</div>
+        <ul class="pkg-list">
+          <li>Travessia ida e volta</li>
+          <li>Atividade à escolha</li>
+          <li>Equipamento incluído</li>
+          <li>Monitor certificado</li>
+          <li>BerlengasPass incluído</li>
+        </ul>
+        <div class="pkg-price">
+          <div class="pkg-from">A partir de</div>
+          <div><span class="pkg-amount">45€</span> <span class="pkg-unit">/ adulto</span></div>
+        </div>
+        <button class="btn-pkg">Reservar</button>
+      </div>
+
+      <div class="pkg-card">
+        <span class="pkg-badge" style="background:rgba(245,158,11,0.15);color:var(--gold);border:1px solid rgba(245,158,11,0.4)">Melhor valor</span>
+        <span class="pkg-icon"><i data-lucide="package"></i></span>
+        <div class="pkg-name">Combos</div>
+        <div class="pkg-desc">Packs combinados com travessia + visita guiada + atividade. A experiência completa da Berlenga num só bilhete.</div>
+        <ul class="pkg-list">
+          <li>Travessia ida e volta</li>
+          <li>Visita guiada à Fortaleza (1509)</li>
+          <li>Passeio de barco pelas grutas</li>
+          <li>Atividade incluída</li>
+          <li>BerlengasPass incluído</li>
+        </ul>
+        <div class="pkg-price">
+          <div class="pkg-from">A partir de</div>
+          <div><span class="pkg-amount">58€</span> <span class="pkg-unit">/ adulto</span></div>
+        </div>
+        <button class="btn-pkg">Reservar</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOAT FEATURE -->
+<section class="boat-sec">
+  <div class="boat-bg"></div>
+  <div class="boat-content">
+    <div class="boat-text">
+      <div class="sec-tag">A Nossa Embarcação</div>
+      <h2 class="sec-h">Cabo Avelar Pessoa. <em style="font-style:italic;color:var(--aqua)">60 anos de travessias.</em></h2>
+      <p>O maior barco desta rota, inspecionado anualmente pela Autoridade Marítima Nacional. Um barco com história — e com todos os equipamentos de segurança a bordo. Conforto e tranquilidade, mesmo quando o mar decide mostrar músculo.</p>
+      <div class="boat-specs">
+        <div class="bspec"><div class="num">190</div><div class="lbl">passageiros capacidade máxima</div></div>
+        <div class="bspec"><div class="num">45 min</div><div class="lbl">travessia em condições normais</div></div>
+        <div class="bspec"><div class="num">2024</div><div class="lbl">última inspeção marítima</div></div>
+        <div class="bspec"><div class="num">100%</div><div class="lbl">seguro de passageiros incluído</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec reviews-sec">
+  <div class="sec-inner">
+    <div class="reviews-top">
+      <div>
+        <div class="sec-tag">Avaliações reais</div>
+        <h2 class="sec-h">O que dizem os nossos passageiros</h2>
+        <p class="sec-sub" style="margin-bottom:0">Mais de 800 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
+      </div>
+      <div class="rating-card">
+        <div class="r-score">4.8</div>
+        <div>
+          <div class="r-stars">★★★★★</div>
+          <div class="r-label">847 avaliações verificadas</div>
+          <div class="r-google">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google Reviews · Verificado
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-text">"Experiência que fica para a vida. A equipa é super profissional, a travessia em si já é uma aventura. Chegámos à ilha completamente apaixonados — as grutas são de tirar o fôlego."</div>
+        <div class="rev-author">
+          <div class="rev-av" style="background:#3b82f6">M</div>
+          <div>
+            <div class="rev-name">Mariana Ferreira</div>
+            <div class="rev-org">Lisboa</div>
+            <div class="rev-date">Agosto 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-text">"Fomos com 3 crianças pequenas e foi perfeito. Organização impecável, o barco é seguro e confortável. As crianças adoraram. Já estamos a planear voltar no próximo verão!"</div>
+        <div class="rev-author">
+          <div class="rev-av" style="background:#8b5cf6">R</div>
+          <div>
+            <div class="rev-name">Ricardo & Família</div>
+            <div class="rev-org">Porto</div>
+            <div class="rev-date">Julho 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-text">"We came from Germany specifically to visit Berlenga Island. Viamar made the whole experience seamless — easy booking, punctual, knowledgeable crew. Best day trip in Portugal!"</div>
+        <div class="rev-author">
+          <div class="rev-av" style="background:#10b981">K</div>
+          <div>
+            <div class="rev-name">Klaus Wagner</div>
+            <div class="rev-org">Alemanha</div>
+            <div class="rev-date">Junho 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULES -->
+<section class="sec sched-sec" id="horarios">
+  <div class="sec-inner">
+    <div class="sec-tag">Horários 2025</div>
+    <h2 class="sec-h">Saídas regulares de Peniche</h2>
+    <p class="sec-sub">Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.</p>
+    <div class="sched-grid">
+      <div class="sched-card">
+        <div class="sched-head">
+          <div>
+            <div class="sched-season">☀️ Alta Temporada</div>
+            <div class="sched-dates">15 Junho — 15 Setembro 2025</div>
+          </div>
+        </div>
+        <div class="sched-rows">
+          <div class="sched-row">
+            <span class="sched-time">09h00</span>
+            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
+            <span class="sched-tag ok">Disponível</span>
+          </div>
+          <div class="sched-row">
+            <span class="sched-time">11h30</span>
+            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
+            <span class="sched-tag low">Poucos lugares</span>
+          </div>
+          <div class="sched-row">
+            <span class="sched-time">16h00</span>
+            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
+            <span class="sched-tag ok">Disponível</span>
+          </div>
+          <div class="sched-row">
+            <span class="sched-time">18h30</span>
+            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
+            <span class="sched-tag full">Quase lotado</span>
+          </div>
+        </div>
+      </div>
+      <div class="sched-card">
+        <div class="sched-head">
+          <div>
+            <div class="sched-season">🌤️ Meia Temporada</div>
+            <div class="sched-dates">Abril, Maio, Outubro 2025</div>
+          </div>
+        </div>
+        <div class="sched-rows">
+          <div class="sched-row">
+            <span class="sched-time">09h30</span>
+            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
+            <span class="sched-tag ok">Disponível</span>
+          </div>
+          <div class="sched-row">
+            <span class="sched-time">10h30</span>
+            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
+            <span class="sched-tag ok">Disponível</span>
+          </div>
+          <div class="sched-row">
+            <span class="sched-time">16h00</span>
+            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
+            <span class="sched-tag ok">Disponível</span>
+          </div>
+          <div class="sched-row">
+            <span class="sched-time">17h00</span>
+            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
+            <span class="sched-tag ok">Disponível</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPART FROM PENICHE -->
+<section class="depart-sec">
+  <div class="depart-bg"></div>
+  <div class="depart-content">
+    <div class="sec-tag">Ponto de partida</div>
+    <h2 class="sec-h">Partimos de Peniche, <br>cidade à beira-mar</h2>
+    <p>O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.</p>
+    <div class="depart-addr">
+      <span class="icon"><i data-lucide="map-pin"></i></span>
+      <span>Cais da Ribeira, Peniche — 39°35′N 9°22′W</span>
+    </div>
+    <a href="#reservar" class="btn-cta">Reservar travessia →</a>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="capture-sec">
+  <div class="capture-bg"></div>
+  <div class="capture-inner">
+    <div class="sec-tag">Não percas a época</div>
+    <h2 class="sec-h" style="margin-bottom:12px">Acesso antecipado a datas e promoções</h2>
+    <p class="cap-sub">Recebe primeiro quando abrimos novos horários para 2025 — e preços exclusivos para quem está na lista.</p>
+    <div class="cap-form">
+      <input class="cap-input" type="email" placeholder="O teu email" />
+      <button class="btn-cap">Quero ser avisado →</button>
+    </div>
+    <div class="cap-note">Sem spam. Só avisamos quando há datas novas ou promoções. Cancela quando quiseres.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-sec" id="faq">
+  <div class="sec-inner">
+    <div class="sec-tag">Perguntas frequentes</div>
+    <h2 class="sec-h">Tudo o que precisas saber</h2>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">O que é o BerlengasPass e porquê é obrigatório?<span class="faq-icon">+</span></button>
+        <div class="faq-a">O BerlengasPass é uma taxa de conservação ambiental obrigatória para todos os visitantes da Ilha da Berlenga, gerida pela Reserva Natural. O valor financia directamente a protecção do ecossistema marinho. Nós já incluímos no preço — não precisas de tratar de nada extra.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">O que acontece se o mar estiver mau?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Em condições adversas, a travessia pode ser cancelada por segurança. Avisamos sempre com antecedência por SMS e email. Tens direito a remarcação gratuita ou reembolso total — sem qualquer custo. A segurança é sempre a prioridade.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Posso levar crianças pequenas?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Sim, as travessias são adequadas para toda a família. Crianças até 3 anos viajam gratuitamente. Recomendamos roupa leve e protecção solar. Em caso de enjoo, temos medicação a bordo. A travessia dura aproximadamente 40 minutos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Quanto tempo tenho na ilha?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Normalmente entre 4 a 6 horas na ilha, dependendo do horário que escolheres. Tempo mais que suficiente para explorar a Fortaleza, fazer snorkeling, almoçar no restaurante da ilha e apreciar as vistas das grutas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Posso cancelar ou remarcar?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Cancelamentos gratuitos até 48 horas antes da partida, com reembolso total. Remarcações gratuitas sujeitas a disponibilidade. Para pedidos de última hora, contacta-nos directamente pelo WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Há restaurante na ilha?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Sim, existe um restaurante junto ao porto da ilha — com refeições típicas e marisco fresco. Recomendamos reservar com antecedência em época alta. Em alternativa, podes levar lanche próprio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand"><img src="img/logo viamar.png" alt="Viamar Ferry Berlenga" style="height:44px;width:auto;display:block;margin-bottom:4px;"></div>
+      <div class="footer-desc">Operador marítimo licenciado há mais de 60 anos para travessias à Ilha da Berlenga. Comprometidos com a segurança dos passageiros e a conservação da Reserva Natural das Berlengas.</div>
+      <div class="footer-contact">
+        <div><span class="icon"><i data-lucide="map-pin"></i></span> Cais da Ribeira, Peniche</div>
+        <div><span class="icon"><i data-lucide="phone"></i></span> <a href="tel:+351911001099">+351 911 001 099</a></div>
+        <div><span class="icon"><i data-lucide="message-circle"></i></span> <a href="#">WhatsApp</a></div>
+        <div><span class="icon"><i data-lucide="mail"></i></span> <a href="mailto:info@viamar-berlenga.com">info@viamar-berlenga.com</a></div>
+      </div>
+    </div>
+    <div>
+      <div class="foot-title">Viagem</div>
+      <ul class="foot-links">
+        <li><a href="#">Horários & Preços</a></li>
+        <li><a href="#">Pacotes</a></li>
+        <li><a href="#">Atividades</a></li>
+        <li><a href="#">BerlengasPass</a></li>
+        <li><a href="#">Grupos & Escolas</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-title">A Ilha</div>
+      <ul class="foot-links">
+        <li><a href="#">Sobre a Berlenga</a></li>
+        <li><a href="#">Fortaleza</a></li>
+        <li><a href="#">Flora & Fauna</a></li>
+        <li><a href="#">Como chegar a Peniche</a></li>
+        <li><a href="#">Mapa da ilha</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-title">Ajuda</div>
+      <ul class="foot-links">
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Termos & Condições</a></li>
+        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Livro de Reclamações</a></li>
+        <li><a href="#">Contactos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Viamar — Travessias à Ilha da Berlenga</span>
+    <div class="footer-certs">
+      <span class="cert-badge">IMT Licenciado</span>
+      <span class="cert-badge">Reserva Natural Parceiro</span>
+      <span class="cert-badge">UNESCO Berlengas</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa-btn" href="https://wa.me/351911001099?text=Olá,%20quero%20informações%20sobre%20a%20travessia%20à%20Berlenga" target="_blank" rel="noopener">
+  <span class="wa-tip">Fala connosco agora</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.123 1.527 5.855L.057 23.215a.75.75 0 00.918.932l5.42-1.463A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75A9.75 9.75 0 1121.75 12 9.76 9.76 0 0112 21.75z"/></svg>
+</a>
+
+<script>
+  // HERO SLIDESHOW
+  let slide = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  function goSlide(n) {
+    slides[slide].classList.remove('active');
+    dots[slide].classList.remove('active');
+    slide = n;
+    slides[slide].classList.add('active');
+    dots[slide].classList.add('active');
+  }
+  setInterval(() => goSlide((slide + 1) % slides.length), 5000);
+
+  // PAX COUNTER
+  const pax = { a: 2, k: 0 };
+  function adj(t, d) {
+    pax[t] = Math.max(t === 'a' ? 1 : 0, pax[t] + d);
+    document.getElementById(t + 'Val').textContent = pax[t];
+    const total = pax.a * 22 + pax.k * 12 + (pax.a + pax.k) * 3;
+    document.getElementById('priceBox').innerHTML = `
+      <div class="price-line"><span>${pax.a} Adulto${pax.a>1?'s':''} × 22€</span><span>${pax.a*22},00€</span></div>
+      ${pax.k > 0 ? `<div class="price-line"><span>${pax.k} Criança${pax.k>1?'s':''} × 12€</span><span>${pax.k*12},00€</span></div>` : ''}
+      <div class="price-line"><span>BerlengasPass × ${pax.a+pax.k} <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>${(pax.a+pax.k)*3},00€</span></div>
+      <div class="price-line"><span>Total</span><span>${total},00€</span></div>
+    `;
+  }
+
+  // COUNTDOWN
+  let t = 14 * 60 + 59;
+  setInterval(() => {
+    if (t > 0) t--;
+    const el = document.getElementById('countdown');
+    if (el) el.textContent = `${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}`;
+  }, 1000);
+
+  // FAQ
+  function faq(btn) {
+    const ans = btn.nextElementSibling;
+    const open = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!open) { btn.classList.add('open'); ans.classList.add('open'); }
+  }
+
+  // SMOOTH SCROLL
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
