@@ -78,7 +78,7 @@
     .hero {
       position: relative;
       height: 100svh; min-height: 640px;
-      display: flex; align-items: center;
+      display: flex; align-items: flex-start;
       overflow: hidden;
     }
     .hero-slides {
@@ -110,7 +110,7 @@
     .hero-content {
       position: relative; z-index: 10;
       width: 100%; max-width: 1400px; margin: 0 auto;
-      padding: 0 48px;
+      padding: 100px 48px 0;
       display: grid; grid-template-columns: 1fr 400px;
       gap: 48px; align-items: center;
     }
@@ -655,7 +655,8 @@
     @media (max-width: 960px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero-content { grid-template-columns: 1fr; padding: 0 20px 96px; }
+      .hero-content { grid-template-columns: 1fr; padding: 0 20px 56px; }
+      .hero { align-items: flex-end; }
       .booking-float { display: none; }
       .island-split { grid-template-columns: 1fr; }
       .island-img { height: 300px; }
