@@ -506,14 +506,12 @@
     /* ─── EMAIL CAPTURE ─── */
     .capture-sec {
       position: relative; overflow: hidden;
-      background: var(--navy); padding: 88px 40px;
+      background: linear-gradient(135deg, #07111f 0%, #0c1d33 50%, #07111f 100%);
+      padding: 88px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .capture-bg {
-      position: absolute; inset: 0;
-      background: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34299.png') center/cover no-repeat;
-      background-color: #1a0e05;
-      opacity: 0.2;
-    }
+    .capture-bg { display: none; }
     .capture-inner {
       position: relative; z-index: 2;
       max-width: 640px; margin: 0 auto; text-align: center;
