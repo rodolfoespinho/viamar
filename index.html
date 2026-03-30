@@ -675,8 +675,10 @@
     }
     @media (max-width: 480px) {
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hero-proof { flex-wrap: wrap; gap: 16px; }
+      .hero-proof { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; margin-bottom: 28px; }
       .proof-div { display: none; }
+      .proof-num { font-size: 22px; }
+      .proof-label { font-size: 11px; }
       .ann-bar { font-size: 12px; }
       .reviews-grid { grid-template-columns: 1fr; }
       .boat-specs { grid-template-columns: 1fr 1fr; }
@@ -1027,12 +1029,12 @@
   <div class="boat-content">
     <div class="boat-text">
       <div class="sec-tag">A Nossa Embarcação</div>
-      <h2 class="sec-h">Cabo Avelar Pessoa. <em style="font-style:italic;color:var(--aqua)">60 anos de travessias.</em></h2>
-      <p>O maior barco desta rota, inspecionado anualmente pela Autoridade Marítima Nacional. Um barco com história — e com todos os equipamentos de segurança a bordo. Conforto e tranquilidade, mesmo quando o mar decide mostrar músculo.</p>
+      <h2 class="sec-h">Cabo Avelar Pessoa.</h2>
+      <p>Há mais de 60 anos a fazer a travessia Peniche–Berlenga. O maior barco desta rota, inspecionado anualmente pela Autoridade Marítima Nacional — com todos os equipamentos de segurança a bordo. Conforto e tranquilidade, mesmo quando o mar decide mostrar músculo.</p>
       <div class="boat-specs">
         <div class="bspec"><div class="num">190</div><div class="lbl">passageiros capacidade máxima</div></div>
         <div class="bspec"><div class="num">45 min</div><div class="lbl">travessia em condições normais</div></div>
-        <div class="bspec"><div class="num">2024</div><div class="lbl">última inspeção marítima</div></div>
+        <div class="bspec"><div class="num">Anual</div><div class="lbl">inspeção pela Autoridade Marítima</div></div>
         <div class="bspec"><div class="num">100%</div><div class="lbl">seguro de passageiros incluído</div></div>
       </div>
     </div>
