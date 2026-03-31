@@ -106,6 +106,12 @@
     .hero-slide:nth-child(1) { background-color: #0a2440; background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.png'); }
     .hero-slide:nth-child(2) { background-color: #0d3b2e; background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.png'); }
     .hero-slide:nth-child(3) { background-color: #1a1a2e; background-image: url('img/freepik__enhance-the-cinematic-feel-of-this-shot__34300.png'); }
+    .hero-slide:nth-child(4) { background-color: #12263a; background-image: url('img/freepik__upgrade-this-cinematic-shot__91289.png'); }
+    .hero-slide:nth-child(5) { background-color: #0e2318; background-image: url('img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.png'); }
+    .hero-slide:nth-child(6) { background-color: #1c1008; background-image: url('img/freepik__recreate-this-as-a-cinematic-shot__59589.png'); }
+    .hero-slide:nth-child(7) { background-color: #0a1e30; background-image: url('img/freepik__enhance-the-cinematic-feeling-on-this-shot__37651.png'); }
+    .hero-slide:nth-child(8) { background-color: #0b1e2d; background-image: url('img/IMG_0984.jpg'); }
+    .hero-slide:nth-child(9) { background-color: #102010; background-image: url('img/IMG_1027.jpg'); }
 
     .hero-content {
       position: relative; z-index: 10;
@@ -653,8 +659,8 @@
     @media (max-width: 960px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero-content { grid-template-columns: 1fr; padding: 60px 20px 40px; }
-      .hero { align-items: center; }
+      .hero-content { grid-template-columns: 1fr; padding: 80px 20px 100px; }
+      .hero { align-items: flex-start; }
       .booking-float { display: none; }
       .island-split { grid-template-columns: 1fr; }
       .island-img { height: 300px; }
@@ -683,6 +689,8 @@
       .ann-bar { font-size: 12px; }
       .reviews-grid { grid-template-columns: 1fr; }
       .boat-specs { grid-template-columns: 1fr 1fr; }
+      .hero-slide { background-position: center 30%; }
+      .hero-dots { left: 20px; }
     }
   </style>
 </head>
@@ -694,7 +702,7 @@
   <span class="ann-sep">·</span>
   Alta temporada a aproximar-se
   <span class="ann-sep">·</span>
-  <a href="#reservar">Garantir o meu lugar →</a>
+  <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener">Garantir o meu lugar →</a>
 </div>
 
 <!-- NAV -->
@@ -707,7 +715,7 @@
     <li><a href="#pacotes">Pacotes</a></li>
     <li><a href="#galeria">A Ilha</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#reservar" class="nav-cta">Reservar agora →</a></li>
+    <li><a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="nav-cta">Reservar agora →</a></li>
   </ul>
   <div class="nav-right">
     <a href="tel:+351911001099" class="nav-phone">+351 911 001 099</a>
@@ -719,6 +727,12 @@
 <section class="hero">
   <div class="hero-slides">
     <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
   </div>
@@ -756,7 +770,7 @@
         </div>
       </div>
       <div class="hero-actions">
-        <a href="#reservar" class="btn-hero-primary"><span class="icon"><i data-lucide="calendar"></i></span> Reservar travessia</a>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-hero-primary"><span class="icon"><i data-lucide="calendar"></i></span> Reservar travessia</a>
         <a href="#galeria" class="btn-hero-ghost">Ver a ilha <span class="icon"><i data-lucide="arrow-right"></i></span></a>
       </div>
     </div>
@@ -818,6 +832,12 @@
     <div class="hero-dot active" onclick="goSlide(0)"></div>
     <div class="hero-dot" onclick="goSlide(1)"></div>
     <div class="hero-dot" onclick="goSlide(2)"></div>
+    <div class="hero-dot" onclick="goSlide(3)"></div>
+    <div class="hero-dot" onclick="goSlide(4)"></div>
+    <div class="hero-dot" onclick="goSlide(5)"></div>
+    <div class="hero-dot" onclick="goSlide(6)"></div>
+    <div class="hero-dot" onclick="goSlide(7)"></div>
+    <div class="hero-dot" onclick="goSlide(8)"></div>
   </div>
 </section>
 
@@ -895,7 +915,7 @@
           <div class="lbl">Fortaleza histórica</div>
         </div>
       </div>
-      <a href="#reservar" class="btn-cta">Reservar agora →</a>
+      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-cta">Reservar agora →</a>
     </div>
   </div>
 </div>
@@ -942,7 +962,7 @@
           <div class="pkg-from">A partir de</div>
           <div><span class="pkg-amount">14€</span> <span class="pkg-unit">/ adulto · 8€ criança</span></div>
         </div>
-        <button class="btn-pkg">Reservar</button>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
       </div>
 
       <div class="pkg-card">
@@ -960,7 +980,7 @@
           <div class="pkg-from">A partir de</div>
           <div><span class="pkg-amount">14€</span> <span class="pkg-unit">/ adulto · 8€ criança</span></div>
         </div>
-        <button class="btn-pkg">Reservar</button>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
       </div>
 
       <div class="pkg-card featured">
@@ -979,7 +999,7 @@
           <div class="pkg-from">A partir de</div>
           <div><span class="pkg-amount">22€</span> <span class="pkg-unit">/ adulto · 12€ criança</span></div>
         </div>
-        <button class="btn-pkg solid">Reservar</button>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg solid">Reservar</a>
       </div>
 
       <div class="pkg-card">
@@ -998,7 +1018,7 @@
           <div class="pkg-from">A partir de</div>
           <div><span class="pkg-amount">45€</span> <span class="pkg-unit">/ adulto</span></div>
         </div>
-        <button class="btn-pkg">Reservar</button>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
       </div>
 
       <div class="pkg-card">
@@ -1017,7 +1037,7 @@
           <div class="pkg-from">A partir de</div>
           <div><span class="pkg-amount">58€</span> <span class="pkg-unit">/ adulto</span></div>
         </div>
-        <button class="btn-pkg">Reservar</button>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
       </div>
 
     </div>
@@ -1186,7 +1206,7 @@
       <span class="icon"><i data-lucide="map-pin"></i></span>
       <span>Cais da Ribeira, Peniche — 39°35′N 9°22′W</span>
     </div>
-    <a href="#reservar" class="btn-cta">Reservar travessia →</a>
+    <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-cta">Reservar travessia →</a>
   </div>
 </section>
 
