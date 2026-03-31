@@ -1,27 +1,37 @@
 .DS_Store
 img/.DS_Store
 
-# Imagens não usadas no site
+# PNGs originais grandes — não fazer deploy
 img/AdobeStock_*
 img/freepik__create-*
 img/freepik__enhance-the-cinematic-feel-of-this-shot__59587.png
+img/freepik__enhance-the-cinematic-feel-on-this-photo__34299.png
+img/freepik__enhance-the-cinematic-feel-on-this-photo__34300.png
+img/freepik__enhance-the-cinematic-feel-on-this-photo__34301.png
+img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.png
 img/freepik__enhance-the-cinematic-feel-on-this-photo__34303.png
 img/freepik__enhance-the-cinematic-feel-on-this-photo__34304.png
 img/freepik__enhance-the-cinematic-feel-on-this-photo__37654.png
 img/freepik__enhance-the-cinematic-feel-on-this-photo__59586.png
 img/freepik__enhance-the-cinematic-feel-on-this-photo__59588.png
 img/freepik__enhance-the-cinematic-feel-on-this-photo__91290.png
-img/freepik__enhance-the-cinematic-feeling-*
+img/freepik__enhance-the-cinematic-feeling-on-this-shot__37651.png
+img/freepik__enhance-the-cinematic-feeling-shot__25494.png
 img/freepik__enhance__*
 img/freepik__generate-*
 img/freepik__photo-*
-img/freepik__recreate-*
-img/freepik__upgrade-*
+img/freepik__recreate-this-as-a-cinematic-shot__59589.png
+img/freepik__recreate-this-photo-*
+img/freepik__recreate-this-shot-*
+img/freepik__upgrade-this-cinematic-shot__91289.png
+img/freepik__upgrade-this-cinematic-shot__37652.png
+img/freepik__upgrade-this-cinematic-shot__37653.png
 img/HORIZONTE*
+
+# IMGs não usadas no slideshow
 img/IMG_0946.jpg
 img/IMG_0985.jpg
 img/IMG_1019.jpg
-img/IMG_1027.jpg
 img/IMG_1076.jpg
 img/IMG_1086.jpg
 img/IMG_1089.jpg
@@ -30,3 +40,4 @@ img/IMG_1155.jpg
 img/IMG_1164.jpg
 img/IMG_1165.jpg
 img/IMG_1166.jpg
+.vercel
