@@ -578,6 +578,7 @@
     }
     .sched-season { font-size: 15px; font-weight: 800; }
     .sched-dates { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .sched-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; font-style: italic; }
     .sched-rows { }
     .sched-row {
       display: flex; align-items: center; padding: 14px 24px;
@@ -847,7 +848,7 @@
         </div>
         <div class="proof-div"></div>
         <div class="proof-item">
-          <span class="proof-num">4.8★</span>
+          <span class="proof-num">4.5★</span>
           <span class="proof-label">Google Reviews</span>
         </div>
         <div class="proof-div"></div>
@@ -857,7 +858,7 @@
         </div>
         <div class="proof-div"></div>
         <div class="proof-item">
-          <span class="proof-num">847</span>
+          <span class="proof-num">706</span>
           <span class="proof-label">avaliações</span>
         </div>
       </div>
@@ -1064,13 +1065,13 @@
       <div>
         <div class="sec-tag">Avaliações reais</div>
         <h2 class="sec-h">O que dizem os nossos passageiros</h2>
-        <p class="sec-sub" style="margin-bottom:0">Mais de 800 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
+        <p class="sec-sub" style="margin-bottom:0">Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
       </div>
       <div class="rating-card">
-        <div class="r-score">4.8</div>
+        <div class="r-score">4.5</div>
         <div>
-          <div class="r-stars">★★★★★</div>
-          <div class="r-label">847 avaliações verificadas</div>
+          <div class="r-stars">★★★★½</div>
+          <div class="r-label">706 avaliações verificadas</div>
           <div class="r-google">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
             Google Reviews · Verificado
@@ -1406,6 +1407,7 @@
     <div>
       <div class="sched-season">${esc(season.emoji)} ${esc(season.name)}</div>
       <div class="sched-dates">${esc(season.dates)}</div>
+      ${season.note ? `<div class="sched-note">${esc(season.note)}</div>` : ''}
     </div>
   </div>
   <div class="sched-rows">
@@ -1413,7 +1415,7 @@
     <div class="sched-row">
       <span class="sched-time">${esc(d.time)}</span>
       <span class="sched-dir">${esc(d.from)} <span class="sched-arrow">→</span> ${esc(d.to)}</span>
-      <span class="sched-tag ${esc(d.status)}">${SCHED_LABELS[d.status] || esc(d.status)}</span>
+      ${d.note ? `<span class="sched-tag low">${esc(d.note)}</span>` : `<span class="sched-tag ${esc(d.status)}">${SCHED_LABELS[d.status] || esc(d.status)}</span>`}
     </div>`).join('')}
   </div>
 </div>`;

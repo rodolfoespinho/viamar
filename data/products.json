@@ -2,7 +2,7 @@
   "_meta": {
     "updated": "2026-04-01",
     "source": "FareHarbor — viamar-berlenga (sync manual via dashboard)",
-    "note": "Actualizar com 'node scripts/sync.js' ou dizer 'sync fareharbor' ao Claude"
+    "note": "Preços base sem taxa FareHarbor. Adulto €19,90 + 6% IVA incluído. Embed FH mostra €21,03 (inclui taxa de reserva FH ~5,7%)."
   },
   "booking_url": "https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F",
   "items": [
@@ -56,8 +56,8 @@
         "BerlengasPass incluído",
         "Bilhete digital QR"
       ],
-      "price_adult": 21.03,
-      "price_child": 12.90,
+      "price_adult": 19.90,
+      "price_child": 13.90,
       "featured": true,
       "fh_flow": "738388"
     },

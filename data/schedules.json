@@ -1,18 +1,34 @@
 {
   "_meta": {
     "updated": "2026-04-01",
-    "source": "FareHarbor — viamar-berlenga (sync manual via dashboard)",
-    "note": "Actualizar com 'node scripts/sync.js' ou dizer 'sync fareharbor' ao Claude"
+    "source": "FareHarbor — viamar-berlenga (sync manual via dashboard calendar)",
+    "note": "Alta temporada: 2 partidas/dia todos os dias. Resto: 1 partida semana / 2 partidas fins de semana."
   },
   "seasons": [
     {
-      "id": "temporada",
-      "name": "Temporada 2026",
-      "emoji": "⚓",
-      "dates": "9 Maio — 30 Setembro 2026",
+      "id": "alta",
+      "name": "Alta Temporada",
+      "emoji": "☀️",
+      "dates": "13 Julho — 6 Setembro 2026",
+      "note": "Dois horários diários, todos os dias",
       "departures": [
-        { "time": "11h00", "from": "Peniche", "to": "Berlenga", "status": "ok" },
-        { "time": "17h00", "from": "Berlenga", "to": "Peniche", "status": "ok" }
+        { "time": "10h00", "from": "Peniche", "to": "Berlenga", "status": "ok" },
+        { "time": "12h00", "from": "Peniche", "to": "Berlenga", "status": "ok" },
+        { "time": "16h00", "from": "Berlenga", "to": "Peniche", "status": "ok" },
+        { "time": "18h00", "from": "Berlenga", "to": "Peniche", "status": "ok" }
+      ]
+    },
+    {
+      "id": "temporada",
+      "name": "Temporada",
+      "emoji": "⚓",
+      "dates": "9 Maio — 12 Julho & 7 — 30 Setembro 2026",
+      "note": "Fins de semana: 10h00 e 12h00 · Dias de semana: 11h00",
+      "departures": [
+        { "time": "10h00", "from": "Peniche", "to": "Berlenga", "status": "ok", "note": "Fim de semana" },
+        { "time": "11h00", "from": "Peniche", "to": "Berlenga", "status": "ok", "note": "Dias de semana" },
+        { "time": "12h00", "from": "Peniche", "to": "Berlenga", "status": "ok", "note": "Fim de semana" },
+        { "time": "17h00", "from": "Berlenga", "to": "Peniche", "status": "ok", "note": "Retorno" }
       ]
     }
   ]
