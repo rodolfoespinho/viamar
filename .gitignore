@@ -40,4 +40,10 @@ img/IMG_1155.jpg
 img/IMG_1164.jpg
 img/IMG_1165.jpg
 img/IMG_1166.jpg
+.vercel/
 .vercel
+
+# Environment variables — NUNCA commitar
+.env
+.env.local
+.env.production

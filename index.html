@@ -4,9 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Viamar — Travessias à Ilha da Berlenga</title>
+
+  <!-- ─── SEO ─── -->
+  <meta name="description" content="Viaje à Ilha da Berlenga com a Viamar. Travessias marítimas a partir de Peniche — bilhetes de ida, volta e visita à ilha. Reserve online com BerlengasPass incluído." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://viamar-berlenga.com/" />
+
+  <!-- ─── Open Graph ─── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Viamar — Travessias à Ilha da Berlenga" />
+  <meta property="og:description" content="Viaje à Ilha da Berlenga com a Viamar. Travessias marítimas a partir de Peniche — reserve online com BerlengasPass incluído." />
+  <meta property="og:url" content="https://viamar-berlenga.com/" />
+  <meta property="og:image" content="https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:site_name" content="Viamar" />
+
+  <!-- ─── Twitter Card ─── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Viamar — Travessias à Ilha da Berlenga" />
+  <meta name="twitter:description" content="Travessias marítimas a partir de Peniche com BerlengasPass incluído. Reserve online." />
+  <meta name="twitter:image" content="https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg" />
+
+  <!-- ─── Favicon ─── -->
+  <link rel="icon" type="image/png" href="/img/logo viamar.png" />
+  <link rel="apple-touch-icon" href="/img/logo viamar.png" />
+
+  <!-- ─── JSON-LD Structured Data ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://viamar-berlenga.com/#business",
+    "name": "Viamar",
+    "url": "https://viamar-berlenga.com/",
+    "description": "Travessias marítimas à Ilha da Berlenga a partir de Peniche. Bilhetes de ida, volta e visita com BerlengasPass incluído.",
+    "image": "https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Peniche",
+      "addressRegion": "Leiria",
+      "addressCountry": "PT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.3556,
+      "longitude": -9.3811
+    },
+    "priceRange": "€€",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Bilhetes Viamar",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Visita à Ilha da Berlenga (Ida + Volta)",
+          "description": "Travessia ida e volta de Peniche à Berlenga com dia livre na ilha.",
+          "price": "21.03",
+          "priceCurrency": "EUR"
+        },
+        {
+          "@type": "Offer",
+          "name": "Bilhete de Ida",
+          "description": "Travessia de Peniche para a Ilha da Berlenga.",
+          "price": "14.90",
+          "priceCurrency": "EUR"
+        },
+        {
+          "@type": "Offer",
+          "name": "Bilhete de Volta",
+          "description": "Travessia da Ilha da Berlenga para Peniche.",
+          "price": "14.90",
+          "priceCurrency": "EUR"
+        }
+      ]
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- FareHarbor embed script — abre booking em lightbox (sem sair do site) -->
+  <!-- Intercepts all <a href="fareharbor.com/embeds/book/..."> e abre inline modal -->
+  <script src="https://fareharbor.com/embeds/script/calendar/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt" async></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -373,6 +455,9 @@
     .btn-pkg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
     .btn-pkg.solid { background: var(--aqua); border-color: var(--aqua); color: var(--navy); }
     .btn-pkg.solid:hover { background: #0891b2; border-color: #0891b2; }
+    .pkg-card.coming-soon { opacity: 0.6; }
+    .pkg-card.coming-soon:hover { transform: none; }
+    .btn-soon { display: block; width: 100%; padding: 13px; border: 1.5px dashed rgba(255,255,255,0.2); border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: default; }
 
     /* ─── PHOTO GALLERY ─── */
     .gallery-sec { background: var(--off); padding: 0; }
@@ -504,7 +589,7 @@
     .sched-time { font-size: 16px; font-weight: 800; color: var(--navy); width: 72px; }
     .sched-dir { flex: 1; font-size: 13px; color: var(--g600); display: flex; align-items: center; gap: 6px; }
     .sched-arrow { color: var(--aqua); font-size: 14px; }
-    .sched-tag { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 100px; }
+    .sched-tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
     .sched-tag.ok { background: #ecfdf5; color: #065f46; }
     .sched-tag.low { background: #fef3c7; color: #92400e; }
     .sched-tag.full { background: #fee2e2; color: #991b1b; }
@@ -673,11 +758,18 @@
       .reviews-top { flex-direction: column; }
       .boat-content { grid-template-columns: 1fr; }
       .sched-grid { grid-template-columns: 1fr; }
+      .sched-row { padding: 13px 18px; }
+      .sched-head { padding: 16px 18px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .cap-form { flex-direction: column; }
       .sec { padding: 56px 20px; }
     }
     @media (max-width: 480px) {
+      .sched-row { padding: 12px 16px; }
+      .sched-head { padding: 14px 16px; }
+      .sched-time { font-size: 15px; width: 58px; }
+      .sched-dir { font-size: 12px; }
+      .sched-tag { font-size: 10px; padding: 3px 8px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .hero-h1 { font-size: clamp(32px, 9vw, 44px); letter-spacing: -0.5px; margin-bottom: 14px; }
       .hero-sub { font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
@@ -784,14 +876,8 @@
         <span class="avail-txt">Disponível para reserva</span>
         <span class="spots-badge"><span class="icon"><i data-lucide="alert-triangle"></i></span> Poucos lugares</span>
       </div>
-      <select class="bf-select">
-        <option>Seleciona uma data</option>
-        <option>Sábado, 5 Abril — 9h00</option>
-        <option>Domingo, 6 Abril — 9h00</option>
-        <option>Sábado, 12 Abril — 9h00</option>
-        <option>Domingo, 13 Abril — 9h00</option>
-        <option>Sábado, 19 Abril — 9h00</option>
-        <option>Domingo, 20 Abril — 9h00</option>
+      <select class="bf-select" id="dateSelect" onchange="onDateChange()">
+        <option value="">A carregar datas…</option>
       </select>
       <select class="bf-select">
         <option>Ida e Volta (recomendado)</option>
@@ -821,9 +907,11 @@
         <div class="price-line"><span>BerlengasPass × 2 <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>6,00€</span></div>
         <div class="price-line"><span>Total</span><span>50,00€</span></div>
       </div>
-      <button class="btn-book-now" onclick="alert('Checkout FareHarbor integrado aqui — sem redirect')">
+      <a class="btn-book-now" id="btnBookNow"
+         href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F"
+         onclick="return bookNow(this, event)">
         <span class="icon"><i data-lucide="ticket"></i></span> Confirmar reserva
-      </button>
+      </a>
       <div class="bf-footer"><span class="icon"><i data-lucide="lock"></i></span> Pagamento seguro · Cancelamento gratuito 48h antes</div>
     </div>
   </div>
@@ -944,102 +1032,9 @@
   <div class="sec-inner">
     <div class="sec-tag">O que queres fazer?</div>
     <h2 class="sec-h">Escolhe a tua experiência</h2>
-    <p class="sec-sub">Desde a travessia simples até pacotes completos com atividades — temos algo para cada aventureiro.</p>
-    <div class="pkg-grid">
-
-      <div class="pkg-card">
-        <span class="pkg-badge gold">Bilhete simples</span>
-        <span class="pkg-icon"><i data-lucide="arrow-right"></i></span>
-        <div class="pkg-name">Bilhete de Ida</div>
-        <div class="pkg-desc">Só precisas de chegar à Berlenga — bilhete de ida de Peniche. Volta quando quiseres com outra operadora.</div>
-        <ul class="pkg-list">
-          <li>Peniche → Berlenga</li>
-          <li>45 min de travessia</li>
-          <li>BerlengasPass incluído</li>
-          <li>Bilhete digital QR</li>
-        </ul>
-        <div class="pkg-price">
-          <div class="pkg-from">A partir de</div>
-          <div><span class="pkg-amount">14€</span> <span class="pkg-unit">/ adulto · 8€ criança</span></div>
-        </div>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
-      </div>
-
-      <div class="pkg-card">
-        <span class="pkg-badge gold">Bilhete simples</span>
-        <span class="pkg-icon"><i data-lucide="arrow-left"></i></span>
-        <div class="pkg-name">Bilhete de Volta</div>
-        <div class="pkg-desc">Já estás na Berlenga e precisas de regressar a Peniche. Reserva o teu lugar de regresso.</div>
-        <ul class="pkg-list">
-          <li>Berlenga → Peniche</li>
-          <li>45 min de travessia</li>
-          <li>BerlengasPass incluído</li>
-          <li>Bilhete digital QR</li>
-        </ul>
-        <div class="pkg-price">
-          <div class="pkg-from">A partir de</div>
-          <div><span class="pkg-amount">14€</span> <span class="pkg-unit">/ adulto · 8€ criança</span></div>
-        </div>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
-      </div>
-
-      <div class="pkg-card featured">
-        <span class="pkg-badge pop"><span class="icon"><i data-lucide="star"></i></span> Mais popular</span>
-        <span class="pkg-icon"><i data-lucide="anchor"></i></span>
-        <div class="pkg-name">Visita à Ilha da Berlenga</div>
-        <div class="pkg-desc">Travessia ida e volta + dia livre na ilha para explorar as praias, falésias e a Fortaleza histórica.</div>
-        <ul class="pkg-list">
-          <li>Peniche → Berlenga → Peniche</li>
-          <li>45 min de travessia cada sentido</li>
-          <li>Dia livre na ilha</li>
-          <li>BerlengasPass incluído</li>
-          <li>Bilhete digital QR</li>
-        </ul>
-        <div class="pkg-price">
-          <div class="pkg-from">A partir de</div>
-          <div><span class="pkg-amount">22€</span> <span class="pkg-unit">/ adulto · 12€ criança</span></div>
-        </div>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg solid">Reservar</a>
-      </div>
-
-      <div class="pkg-card">
-        <span class="pkg-badge" style="background:rgba(6,182,212,0.15);color:var(--aqua);border:1px solid var(--aqua)">Aventura</span>
-        <span class="pkg-icon"><i data-lucide="fish"></i></span>
-        <div class="pkg-name">Atividades na Ilha</div>
-        <div class="pkg-desc">Travessia + atividade à escolha — snorkeling, mergulho, caiaque ou passeio de barco pelas grutas marinhas.</div>
-        <ul class="pkg-list">
-          <li>Travessia ida e volta</li>
-          <li>Atividade à escolha</li>
-          <li>Equipamento incluído</li>
-          <li>Monitor certificado</li>
-          <li>BerlengasPass incluído</li>
-        </ul>
-        <div class="pkg-price">
-          <div class="pkg-from">A partir de</div>
-          <div><span class="pkg-amount">45€</span> <span class="pkg-unit">/ adulto</span></div>
-        </div>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
-      </div>
-
-      <div class="pkg-card">
-        <span class="pkg-badge" style="background:rgba(245,158,11,0.15);color:var(--gold);border:1px solid rgba(245,158,11,0.4)">Melhor valor</span>
-        <span class="pkg-icon"><i data-lucide="package"></i></span>
-        <div class="pkg-name">Combos</div>
-        <div class="pkg-desc">Packs combinados com travessia + visita guiada + atividade. A experiência completa da Berlenga num só bilhete.</div>
-        <ul class="pkg-list">
-          <li>Travessia ida e volta</li>
-          <li>Visita guiada à Fortaleza (1509)</li>
-          <li>Passeio de barco pelas grutas</li>
-          <li>Atividade incluída</li>
-          <li>BerlengasPass incluído</li>
-        </ul>
-        <div class="pkg-price">
-          <div class="pkg-from">A partir de</div>
-          <div><span class="pkg-amount">58€</span> <span class="pkg-unit">/ adulto</span></div>
-        </div>
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-pkg">Reservar</a>
-      </div>
-
+    <p class="sec-sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
+    <div class="pkg-grid" id="pkgGrid">
+      <!-- Renderizado dinamicamente a partir de data/products.json -->
     </div>
   </div>
 </section>
@@ -1127,70 +1122,11 @@
 <!-- SCHEDULES -->
 <section class="sec sched-sec" id="horarios">
   <div class="sec-inner">
-    <div class="sec-tag">Horários 2025</div>
+    <div class="sec-tag" id="schedTag">Horários 2025</div>
     <h2 class="sec-h">Saídas regulares de Peniche</h2>
     <p class="sec-sub">Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.</p>
-    <div class="sched-grid">
-      <div class="sched-card">
-        <div class="sched-head">
-          <div>
-            <div class="sched-season">☀️ Alta Temporada</div>
-            <div class="sched-dates">15 Junho — 15 Setembro 2025</div>
-          </div>
-        </div>
-        <div class="sched-rows">
-          <div class="sched-row">
-            <span class="sched-time">09h00</span>
-            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
-            <span class="sched-tag ok">Disponível</span>
-          </div>
-          <div class="sched-row">
-            <span class="sched-time">11h30</span>
-            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
-            <span class="sched-tag low">Poucos lugares</span>
-          </div>
-          <div class="sched-row">
-            <span class="sched-time">16h00</span>
-            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
-            <span class="sched-tag ok">Disponível</span>
-          </div>
-          <div class="sched-row">
-            <span class="sched-time">18h30</span>
-            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
-            <span class="sched-tag full">Quase lotado</span>
-          </div>
-        </div>
-      </div>
-      <div class="sched-card">
-        <div class="sched-head">
-          <div>
-            <div class="sched-season">🌤️ Meia Temporada</div>
-            <div class="sched-dates">Abril, Maio, Outubro 2025</div>
-          </div>
-        </div>
-        <div class="sched-rows">
-          <div class="sched-row">
-            <span class="sched-time">09h30</span>
-            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
-            <span class="sched-tag ok">Disponível</span>
-          </div>
-          <div class="sched-row">
-            <span class="sched-time">10h30</span>
-            <span class="sched-dir">Peniche <span class="sched-arrow">→</span> Berlenga</span>
-            <span class="sched-tag ok">Disponível</span>
-          </div>
-          <div class="sched-row">
-            <span class="sched-time">16h00</span>
-            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
-            <span class="sched-tag ok">Disponível</span>
-          </div>
-          <div class="sched-row">
-            <span class="sched-time">17h00</span>
-            <span class="sched-dir">Berlenga <span class="sched-arrow">→</span> Peniche</span>
-            <span class="sched-tag ok">Disponível</span>
-          </div>
-        </div>
-      </div>
+    <div class="sched-grid" id="schedGrid">
+      <!-- Renderizado dinamicamente a partir de data/schedules.json -->
     </div>
   </div>
 </section>
@@ -1338,12 +1274,20 @@
   function adj(t, d) {
     pax[t] = Math.max(t === 'a' ? 1 : 0, pax[t] + d);
     document.getElementById(t + 'Val').textContent = pax[t];
-    const total = pax.a * 22 + pax.k * 12 + (pax.a + pax.k) * 3;
+    renderPriceBox();
+  }
+
+  function renderPriceBox(adultRate, childRate) {
+    const ar = adultRate ?? window._fhAdultRate ?? 22;
+    const cr = childRate ?? window._fhChildRate ?? 12;
+    const bp = 3; // BerlengasPass por pessoa
+    const total = pax.a * ar + pax.k * cr + (pax.a + pax.k) * bp;
+    const fmt = v => v.toFixed(2).replace('.', ',');
     document.getElementById('priceBox').innerHTML = `
-      <div class="price-line"><span>${pax.a} Adulto${pax.a>1?'s':''} × 22€</span><span>${pax.a*22},00€</span></div>
-      ${pax.k > 0 ? `<div class="price-line"><span>${pax.k} Criança${pax.k>1?'s':''} × 12€</span><span>${pax.k*12},00€</span></div>` : ''}
-      <div class="price-line"><span>BerlengasPass × ${pax.a+pax.k} <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>${(pax.a+pax.k)*3},00€</span></div>
-      <div class="price-line"><span>Total</span><span>${total},00€</span></div>
+      <div class="price-line"><span>${pax.a} Adulto${pax.a>1?'s':''} × ${ar}€</span><span>${fmt(pax.a*ar)}€</span></div>
+      ${pax.k > 0 ? `<div class="price-line"><span>${pax.k} Criança${pax.k>1?'s':''} × ${cr}€</span><span>${fmt(pax.k*cr)}€</span></div>` : ''}
+      <div class="price-line"><span>BerlengasPass × ${pax.a+pax.k} <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>${fmt((pax.a+pax.k)*bp)}€</span></div>
+      <div class="price-line"><span>Total</span><span>${fmt(total)}€</span></div>
     `;
   }
 
@@ -1373,6 +1317,310 @@
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+
+  // ─── RENDER FROM JSON DATA ───────────────────────────────────────────────
+  // Products and schedules are loaded from data/*.json — updated via sync command
+
+  const BADGE_STYLES = {
+    gold:  'background:var(--gold);color:var(--navy)',
+    pop:   'background:var(--aqua);color:var(--navy)',
+    aqua:  'background:rgba(6,182,212,0.15);color:var(--aqua);border:1px solid var(--aqua)',
+    amber: 'background:rgba(245,158,11,0.15);color:var(--gold);border:1px solid rgba(245,158,11,0.4)',
+  };
+
+  const SCHED_LABELS = { ok: 'Disponível', low: 'Poucos lugares', full: 'Quase lotado' };
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function fmtPrice(n) {
+    return Number(n).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  async function loadProducts() {
+    const grid = document.getElementById('pkgGrid');
+    try {
+      const res  = await fetch('data/products.json');
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+
+      grid.innerHTML = data.items.map(item => {
+        const badgeStyle = BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold;
+        const priceUnit  = item.price_child
+          ? `/ adulto · ${fmtPrice(item.price_child)}€ criança`
+          : '/ pessoa';
+        const btnClass   = item.featured ? 'btn-pkg solid' : 'btn-pkg';
+        const cardClass  = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
+        const bookUrl    = data.booking_url;
+
+        const priceBlock = item.coming_soon
+          ? `<div class="pkg-price"><div class="pkg-from">Em breve</div></div>`
+          : `<div class="pkg-price">
+    <div class="pkg-from">A partir de</div>
+    <div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span> <span class="pkg-unit">${esc(priceUnit)}</span></div>
+  </div>`;
+
+        const ctaBlock = item.coming_soon
+          ? `<span class="btn-pkg btn-soon">Em Breve</span>`
+          : `<a href="${esc(bookUrl)}" class="${btnClass}">Reservar</a>`;
+
+        return `
+<div class="${cardClass}">
+  <span class="pkg-badge" style="${badgeStyle}">${esc(item.badge)}</span>
+  <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
+  <div class="pkg-name">${esc(item.name)}</div>
+  <div class="pkg-desc">${esc(item.desc)}</div>
+  <ul class="pkg-list">
+    ${item.features.map(f => `<li>${esc(f)}</li>`).join('')}
+  </ul>
+  ${priceBlock}
+  ${ctaBlock}
+</div>`;
+      }).join('');
+
+      lucide.createIcons();
+    } catch (e) {
+      console.warn('[Viamar] Could not load products.json');
+      grid.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:24px">Erro ao carregar pacotes.</p>';
+    }
+  }
+
+  // ─── SCHEDULE RENDERING ───────────────────────────────────────────────────
+  // renderSchedules() accepts a normalised seasons array — source-agnostic.
+  // Currently fed from data/schedules.json.
+  // When FareHarbor APP key is available, swap fetchScheduleData() to call
+  // /api/availability or /api/range and map `num_remaining`→status instead.
+
+  function statusFromFH(numRemaining, capacity) {
+    // FareHarbor → normalise to ok / low / full
+    // TODO: activate when /api/availability is live
+    if (!numRemaining || numRemaining === 0) return 'full';
+    if (capacity && numRemaining / capacity < 0.25) return 'low';
+    return 'ok';
+  }
+
+  function renderScheduleCard(season) {
+    return `
+<div class="sched-card">
+  <div class="sched-head">
+    <div>
+      <div class="sched-season">${esc(season.emoji)} ${esc(season.name)}</div>
+      <div class="sched-dates">${esc(season.dates)}</div>
+    </div>
+  </div>
+  <div class="sched-rows">
+    ${season.departures.map(d => `
+    <div class="sched-row">
+      <span class="sched-time">${esc(d.time)}</span>
+      <span class="sched-dir">${esc(d.from)} <span class="sched-arrow">→</span> ${esc(d.to)}</span>
+      <span class="sched-tag ${esc(d.status)}">${SCHED_LABELS[d.status] || esc(d.status)}</span>
+    </div>`).join('')}
+  </div>
+</div>`;
+  }
+
+  async function fetchScheduleData() {
+    // ── SOURCE: static JSON (current) ──────────────────────────────────────
+    const res = await fetch('data/schedules.json');
+    if (!res.ok) throw new Error('schedules.json unavailable');
+    return res.json();
+
+    // ── SOURCE: FareHarbor API (activate when APP key arrives) ─────────────
+    // const today = new Date().toISOString().split('T')[0];
+    // const fhRes = await fetch(`/api/range?start=${today}`);
+    // if (!fhRes.ok) throw new Error('FH range unavailable');
+    // const fhData = await fhRes.json();
+    // return mapFHToSchedules(fhData.availabilities);   // <- to build
+  }
+
+  async function loadSchedules() {
+    const grid = document.getElementById('schedGrid');
+    const tag  = document.getElementById('schedTag');
+    try {
+      const data = await fetchScheduleData();
+
+      if (data._meta?.updated) {
+        const year = data._meta.updated.split('-')[0];
+        if (tag) tag.textContent = `Horários ${year}`;
+      }
+
+      grid.innerHTML = data.seasons.map(renderScheduleCard).join('');
+
+    } catch (e) {
+      console.warn('[Viamar] Could not load schedule data:', e.message);
+    }
+  }
+
+  loadProducts();
+  loadSchedules();
+  // ─────────────────────────────────────────────────────────────────────────
+
+  // ─── FAREHARBOR INTEGRATION ──────────────────────────────────────────────
+  // Booking URLs — já públicos no HTML, não são as API keys
+  const FH_BASE_URL = 'https://fareharbor.com/embeds/book/viamar-berlenga/';
+  const FH_PARAMS   = 'full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F';
+
+  let _fhAvailabilities = [];
+  let _selectedPk       = null;
+
+  const DAYS_PT   = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+  const MONTHS_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+  function fhUrl(dateStr) {
+    return FH_BASE_URL + '?' + FH_PARAMS + (dateStr ? '&date=' + dateStr : '');
+  }
+
+  function isoToDateStr(iso) { return iso.split('T')[0]; }
+
+  function formatSlot(iso) {
+    const d = new Date(iso);
+    return `${DAYS_PT[d.getDay()]}, ${d.getDate()} ${MONTHS_PT[d.getMonth()]} — ${String(d.getHours()).padStart(2,'0')}h${String(d.getMinutes()).padStart(2,'0')}`;
+  }
+
+  function slotStatus(remaining, capacity) {
+    if (remaining <= 0) return 'full';
+    if (remaining / capacity < 0.2) return 'low';
+    return 'ok';
+  }
+
+  function findPrice(prices, keyword) {
+    return prices.find(p => (p.type || '').toLowerCase().includes(keyword));
+  }
+
+  function applyAvailabilityToWidget(a) {
+    // Rates
+    const adultP = findPrice(a.prices, 'adult') || a.prices[0];
+    const childP = findPrice(a.prices, 'child') || a.prices[1];
+    window._fhAdultRate = adultP ? adultP.total_cents / 100 : 22;
+    window._fhChildRate = childP ? childP.total_cents / 100 : 12;
+    renderPriceBox();
+
+    // Availability pill
+    const pill   = document.querySelector('.avail-pill');
+    const dot    = pill.querySelector('.avail-dot');
+    const txt    = pill.querySelector('.avail-txt');
+    const badge  = pill.querySelector('.spots-badge');
+    const status = slotStatus(a.num_remaining, a.capacity);
+
+    if (status === 'full') {
+      dot.style.background    = 'var(--red)';
+      pill.style.background   = '#fef2f2';
+      pill.style.borderColor  = '#fca5a5';
+      txt.style.color         = '#991b1b';
+      txt.textContent         = 'Esgotado para esta data';
+      badge.style.display     = 'none';
+    } else if (status === 'low') {
+      dot.style.background    = 'var(--gold)';
+      pill.style.background   = '#fffbeb';
+      pill.style.borderColor  = '#fcd34d';
+      txt.style.color         = '#92400e';
+      txt.textContent         = 'Disponível — últimos lugares';
+      badge.style.background  = '#fef3c7';
+      badge.style.color       = '#92400e';
+      badge.textContent       = a.num_remaining + ' lugares';
+      badge.style.display     = '';
+    } else {
+      dot.style.background    = 'var(--green)';
+      pill.style.background   = '#ecfdf5';
+      pill.style.borderColor  = '#6ee7b7';
+      txt.style.color         = '#065f46';
+      txt.textContent         = 'Disponível para reserva';
+      badge.style.background  = '#fee2e2';
+      badge.style.color       = 'var(--red)';
+      badge.textContent       = a.num_remaining + ' lugares';
+      badge.style.display     = '';
+    }
+  }
+
+  function onDateChange() {
+    const select = document.getElementById('dateSelect');
+    const pk = parseInt(select.value, 10);
+    if (!pk) { _selectedPk = null; return; }
+    _selectedPk = pk;
+    const a = _fhAvailabilities.find(x => x.pk === pk);
+    if (a) applyAvailabilityToWidget(a);
+  }
+
+  function bookNow(anchor, event) {
+    const select = document.getElementById('dateSelect');
+    // If API data loaded and no date chosen, highlight the select
+    if (_fhAvailabilities.length > 0 && !_selectedPk) {
+      event.preventDefault();
+      select.focus();
+      select.style.borderColor = 'var(--red)';
+      setTimeout(() => { select.style.borderColor = ''; }, 1800);
+      return false;
+    }
+    // Update href with selected date so FH embed lightbox pre-selects it
+    if (_selectedPk) {
+      const a = _fhAvailabilities.find(x => x.pk === _selectedPk);
+      if (a) anchor.href = fhUrl(isoToDateStr(a.start_at));
+    }
+    // Return true — FareHarbor embed script intercepts the click and opens lightbox
+    return true;
+  }
+
+  function updateUrgencyStrip(a) {
+    const strip = document.querySelector('.urgency');
+    if (!strip || !a) return;
+    strip.innerHTML =
+      '<span class="icon"><i data-lucide="clock"></i></span>' +
+      ' Próxima saída disponível: <strong>' + formatSlot(a.start_at) + '</strong>' +
+      ' &nbsp;·&nbsp; <strong>' + a.num_remaining + ' lugar' + (a.num_remaining !== 1 ? 'es' : '') + ' restante' + (a.num_remaining !== 1 ? 's' : '') + '</strong>' +
+      ' &nbsp;·&nbsp; <a href="' + fhUrl(isoToDateStr(a.start_at)) + '" target="_blank" rel="noopener" style="color:#fde68a;font-weight:700">Garantir o meu lugar →</a>';
+    lucide.createIcons();
+  }
+
+  async function loadFHAvailability() {
+    const select = document.getElementById('dateSelect');
+    try {
+      const today  = new Date().toISOString().split('T')[0];
+      const endDay = new Date();
+      endDay.setDate(endDay.getDate() + 30);
+      const end    = endDay.toISOString().split('T')[0];
+
+      const res = await fetch('/api/range?start=' + today + '&end=' + end);
+      if (!res.ok) throw new Error('API ' + res.status);
+
+      const data = await res.json();
+      _fhAvailabilities = data.availabilities || [];
+
+      if (_fhAvailabilities.length === 0) {
+        select.innerHTML = '<option value="">Sem datas disponíveis neste período</option>';
+        return;
+      }
+
+      select.innerHTML = '<option value="">Seleciona uma data</option>';
+      _fhAvailabilities.forEach(a => {
+        const status  = slotStatus(a.num_remaining, a.capacity);
+        const suffix  = status === 'full' ? ' — Esgotado' : status === 'low' ? ' — Últimos lugares' : '';
+        const opt     = document.createElement('option');
+        opt.value     = String(a.pk);
+        opt.textContent = formatSlot(a.start_at) + suffix;
+        if (status === 'full') opt.disabled = true;
+        select.appendChild(opt);
+      });
+
+      // Auto-select first available slot
+      const first = _fhAvailabilities.find(a => a.num_remaining > 0);
+      if (first) {
+        select.value = String(first.pk);
+        _selectedPk  = first.pk;
+        applyAvailabilityToWidget(first);
+        updateUrgencyStrip(first);
+      }
+
+    } catch (err) {
+      console.warn('[FareHarbor] Availability API unavailable — using direct FH embed:', err);
+      // Graceful fallback: date selection happens inside the FareHarbor lightbox
+      select.innerHTML = '<option value="">Seleciona data no próximo passo →</option>';
+      // btn is already an <a> pointing to FH — embed script opens lightbox on click
+    }
+  }
+
+  loadFHAvailability();
+  // ─────────────────────────────────────────────────────────────────────────
+
   lucide.createIcons();
 </script>
 

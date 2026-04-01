@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "updated": "2026-04-01",
+    "source": "FareHarbor — viamar-berlenga (sync manual via dashboard)",
+    "note": "Actualizar com 'node scripts/sync.js' ou dizer 'sync fareharbor' ao Claude"
+  },
+  "seasons": [
+    {
+      "id": "temporada",
+      "name": "Temporada 2026",
+      "emoji": "⚓",
+      "dates": "9 Maio — 30 Setembro 2026",
+      "departures": [
+        { "time": "11h00", "from": "Peniche", "to": "Berlenga", "status": "ok" },
+        { "time": "17h00", "from": "Berlenga", "to": "Peniche", "status": "ok" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIAMAR — Posts · 9 de Maio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#07111f; --aqua:#06b6d4; --gold:#f59e0b; }
+
+    body { background:#020810; font-family:'Inter',sans-serif; padding:64px 40px 100px; }
+
+    .page-header { text-align:center; margin-bottom:72px; }
+    .page-header h1 { font-size:11px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:rgba(255,255,255,.15); margin-bottom:8px; }
+    .page-header p { font-size:11px; color:rgba(255,255,255,.05); letter-spacing:2px; }
+
+    /* SECTION DIVIDER */
+    .sec { max-width:1112px; margin:80px auto 52px; display:flex; align-items:center; gap:32px; }
+    .sec-line { flex:1; height:1px; background:linear-gradient(to right,transparent,rgba(255,255,255,.08),transparent); }
+    .sec-body { text-align:center; flex-shrink:0; }
+    .sec-tag { font-size:10px; font-weight:700; letter-spacing:4px; text-transform:uppercase; margin-bottom:6px; }
+    .sec-tag.gold { color:var(--gold); }
+    .sec-tag.aqua { color:var(--aqua); }
+    .sec-tag.red  { color:#f87171; }
+    .sec-title { font-family:'Playfair Display',serif; font-style:italic; font-weight:700; font-size:26px; color:rgba(255,255,255,.6); margin-bottom:6px; }
+    .sec-sub { font-size:11px; color:rgba(255,255,255,.16); letter-spacing:2px; }
+
+    /* GALLERY */
+    .gallery { display:grid; grid-template-columns:repeat(2,540px); gap:44px 32px; max-width:1112px; margin:0 auto; }
+
+    .pw { display:flex; flex-direction:column; gap:10px; }
+    .pl { font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.14); }
+    .pr { font-size:10px; color:rgba(255,255,255,.07); letter-spacing:.5px; margin-top:2px; font-style:italic; }
+
+    /* POSTER FRAME - scales 1080×1080 → 540×540 */
+    .pf { width:540px; height:540px; overflow:hidden; position:relative; border-radius:3px; }
+    .p  { width:1080px; height:1080px; transform:scale(.5); transform-origin:top left; position:absolute; top:0; left:0; overflow:hidden; }
+
+    /* SHARED LAYERS */
+    .photo { position:absolute; inset:0; background-size:cover; }
+    .gr { position:absolute; inset:0; pointer-events:none; opacity:.022;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:200px; }
+
+    /* GRADIENT SYSTEM
+       bot-std  : standard portrait shot — covers 60% from bottom
+       bot-land : landscape/wide shot (boats) — 65%, stronger
+       top-std  : logo protection top bar
+    */
+    .gt { position:absolute; inset:0;
+      background:linear-gradient(to bottom,rgba(7,17,31,.78) 0%,rgba(7,17,31,.18) 14%,transparent 24%); }
+    .gb { position:absolute; inset:0;
+      background:linear-gradient(to top,
+        rgba(7,17,31,1)    0%,
+        rgba(7,17,31,.97) 18%,
+        rgba(7,17,31,.82) 34%,
+        rgba(7,17,31,.38) 50%,
+        rgba(7,17,31,.08) 60%,
+        transparent        68%); }
+    /* Stronger variant for bright/busy photos */
+    .gb-s { position:absolute; inset:0;
+      background:linear-gradient(to top,
+        rgba(7,17,31,1)    0%,
+        rgba(7,17,31,.97) 22%,
+        rgba(7,17,31,.88) 38%,
+        rgba(7,17,31,.5)  54%,
+        rgba(7,17,31,.14) 64%,
+        transparent        72%); }
+
+    /* ACCENT BARS */
+    .ab { position:absolute; bottom:0; left:0; right:0; height:3px; }
+    .ab-g { background:linear-gradient(to right,var(--gold),rgba(245,158,11,.03)); }
+    .ab-a { background:linear-gradient(to right,var(--aqua),rgba(6,182,212,.03)); }
+    .ab-w { background:linear-gradient(to right,rgba(255,255,255,.2),transparent); }
+
+    /* SHELL */
+    .sh { position:relative; z-index:10; width:100%; height:100%;
+      display:flex; flex-direction:column; justify-content:space-between;
+      padding:52px 72px 64px; }
+
+    /* TOP ROW */
+    .tp { display:flex; align-items:center; justify-content:space-between; }
+    .logo { height:36px; width:auto; filter:brightness(0) invert(1); opacity:.92; }
+
+    .bdg { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:8px 18px; border-radius:100px; }
+    .bg { color:var(--gold);  background:rgba(245,158,11,.11); border:1px solid rgba(245,158,11,.28); }
+    .ba { color:var(--aqua);  background:rgba(6,182,212,.08);  border:1px solid rgba(6,182,212,.22); }
+    .bw { color:rgba(255,255,255,.48); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); }
+    .br { color:#f87171; background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.28); display:flex; align-items:center; gap:8px; }
+    .br::before { content:''; width:6px; height:6px; border-radius:50%; background:#ef4444; flex-shrink:0; }
+
+    /* BOTTOM COPY BLOCK */
+    .bot { display:flex; flex-direction:column; }
+
+    .ey { font-size:11px; font-weight:700; letter-spacing:4px; text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+    .ey::before { content:''; width:32px; height:1.5px; flex-shrink:0; }
+    .eg { color:var(--gold); } .eg::before { background:var(--gold); opacity:.7; }
+    .ea { color:var(--aqua); } .ea::before { background:var(--aqua); opacity:.7; }
+    .ed { color:rgba(255,255,255,.38); } .ed::before { background:rgba(255,255,255,.25); }
+    .er { color:#f87171; } .er::before { background:#ef4444; opacity:.7; }
+
+    /* headline stack: italic lead + bold caps */
+    .hs { display:flex; flex-direction:column; line-height:1; }
+    .hi { font-family:'Playfair Display',serif; font-style:italic; font-weight:800; font-size:76px; line-height:.97; color:rgba(255,255,255,.72); letter-spacing:-2px; }
+    .hu { font-family:'Playfair Display',serif; font-weight:900; text-transform:uppercase; font-size:104px; line-height:.88; color:#fff; letter-spacing:-4px; }
+    .hd { font-family:'Playfair Display',serif; font-weight:900; font-size:104px; line-height:.88; color:rgba(255,255,255,.25); letter-spacing:-4px; }
+
+    /* sub-line below headline */
+    .sub { font-size:20px; font-weight:300; color:rgba(255,255,255,.38); line-height:1.5; margin-top:14px; letter-spacing:.3px; }
+
+    .rule { width:100%; height:1px; background:linear-gradient(to right,rgba(255,255,255,.16),transparent); margin:22px 0 20px; }
+
+    /* FOOTER ROW */
+    .fr { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
+
+    /* date block */
+    .db { display:flex; align-items:flex-end; gap:16px; }
+    .dn { font-family:'Playfair Display',serif; font-weight:900; font-size:100px; line-height:.85; color:var(--gold); letter-spacing:-4px; }
+    .dt { padding-bottom:8px; display:flex; flex-direction:column; gap:4px; }
+    .dm { font-weight:800; font-size:36px; line-height:1; color:rgba(255,255,255,.88); text-transform:uppercase; letter-spacing:1px; }
+    .dy { font-size:14px; color:rgba(255,255,255,.25); letter-spacing:3px; }
+
+    /* meta right */
+    .mt { text-align:right; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+    .mr { font-size:16px; font-weight:500; color:rgba(255,255,255,.52); display:flex; align-items:center; gap:8px; }
+    .mr .ar { color:var(--aqua); }
+    .mh { font-size:12px; color:rgba(255,255,255,.17); letter-spacing:1px; }
+
+    /* CTA button */
+    .cta { display:inline-block; font-weight:800; border-radius:100px; white-space:nowrap; }
+    .cg { background:var(--gold); color:#07111f; }
+    .ca { background:var(--aqua); color:#07111f; }
+    .ce { background:#ef4444; color:#fff; }
+    .csm { font-size:20px; padding:16px 44px; }
+    .cmd { font-size:24px; padding:20px 56px; }
+
+    /* corner bracket */
+    .cbr { position:absolute; top:40px; right:72px; width:26px; height:26px; border-top:1.5px solid rgba(255,255,255,.1); border-right:1.5px solid rgba(255,255,255,.1); }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>VIAMAR · Plano Editorial · 9 de Maio · 30 posts</h1>
+  <p>inauguração · conversão · arrojado</p>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SECÇÃO 1 — INAUGURAÇÃO
+══════════════════════════════════════ -->
+<div class="sec">
+  <div class="sec-line"></div>
+  <div class="sec-body">
+    <div class="sec-tag gold">Secção 1 · Posts 01–10</div>
+    <div class="sec-title">Inauguração · 9 de Maio 2025</div>
+    <div class="sec-sub">emocional · poético · a abertura da temporada como evento</div>
+  </div>
+  <div class="sec-line"></div>
+</div>
+
+<div class="gallery">
+
+  <!-- 01 -->
+  <div class="pw">
+    <div class="pl">01 — O mar volta a ser nosso</div>
+    <div class="pr">Após o inverno, a reabertura como regresso prometido.</div>
+    <div class="pf"><div class="p" id="p1">
+      <div class="photo" style="background-image:url('img/IMG_0984.jpg');background-position:center top"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Inauguração · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Abertura da temporada 2025</div>
+          <div class="hs">
+            <span class="hi">Depois de um inverno longo,</span>
+            <span class="hu" style="color:var(--gold)">A SER NOSSO.</span>
+          </div>
+          <div class="sub">o mar volta</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 02 -->
+  <div class="pw">
+    <div class="pl">02 — A Berlenga volta a abrir</div>
+    <div class="pr">Sê dos primeiros. Urgência de inauguração.</div>
+    <div class="pf"><div class="p" id="p2">
+      <div class="photo" style="background-image:url('img/IMG_0985.jpg');background-position:center top"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">Temporada 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">9 de Maio · Peniche → Berlenga</div>
+          <div class="hs">
+            <span class="hi">A Berlenga volta a</span>
+            <span class="hu" style="color:var(--aqua);font-size:136px;letter-spacing:-5px">ABRIR.</span>
+          </div>
+          <div class="sub">Sê dos primeiros a entrar.</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 03 -->
+  <div class="pw">
+    <div class="pl">03 — Não se visita. Vive-se.</div>
+    <div class="pr">A Berlenga não é um destino turístico. É uma experiência que te muda.</div>
+    <div class="pf"><div class="p" id="p3">
+      <div class="photo" style="background-image:url('img/IMG_1019.jpg');background-position:center 18%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Inauguração · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Primeira travessia da temporada</div>
+          <div class="hs">
+            <span class="hi">Há ilhas que não se visitam.</span>
+            <span class="hu" style="font-size:136px;letter-spacing:-5px">VIVEM-SE.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Ilha da Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 04 -->
+  <div class="pw">
+    <div class="pl">04 — Esta cor não existe em mais lado nenhum</div>
+    <div class="pr">O turquesa da Berlenga como argumento irrefutável. E não é filtro.</div>
+    <div class="pf"><div class="p" id="p4">
+      <div class="photo" style="background-image:url('img/IMG_1122.jpg');background-position:center 42%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio · Berlenga</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Inauguração da temporada 2025</div>
+          <div class="hs">
+            <span class="hi">Esta cor não existe</span>
+            <span class="hu" style="color:var(--aqua);font-size:108px;letter-spacing:-4px">EM PORTUGAL.</span>
+          </div>
+          <div class="sub">E não é filtro.</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Ilha da Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 05 -->
+  <div class="pw">
+    <div class="pl">05 — A primeira vez</div>
+    <div class="pr">A promessa implícita de que vai perceber porquê toda a gente volta.</div>
+    <div class="pf"><div class="p" id="p5">
+      <div class="photo" style="background-image:url('img/IMG_1086.jpg');background-position:center 22%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-w"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bw">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey ed">Primeira travessia · Temporada 2025</div>
+          <div class="hs">
+            <span class="hi">A primeira vez que vires isto,</span>
+            <span class="hu" style="font-size:100px;letter-spacing:-3px">VAS PERCEBER.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn" style="font-size:130px">9</div>
+              <div class="dt" style="padding-bottom:14px"><div class="dm" style="font-size:40px">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 06 -->
+  <div class="pw">
+    <div class="pl">06 — 12km. Um mundo à parte.</div>
+    <div class="pr">Escala geográfica como argumento emocional. Perto e inalcançável ao mesmo tempo.</div>
+    <div class="pf"><div class="p" id="p6">
+      <div class="photo" style="background-image:url('img/IMG_1155.jpg');background-position:center 12%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Inauguração · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Berlenga Grande · Reserva Natural</div>
+          <div class="hs">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:148px;line-height:.84;color:transparent;-webkit-text-stroke:2px rgba(245,158,11,.48);letter-spacing:-6px">12km</span>
+            <span class="hu" style="font-size:88px;letter-spacing:-2px;margin-top:8px">UM MUNDO À PARTE.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 07 -->
+  <div class="pw">
+    <div class="pl">07 — 9 de Maio. É o início.</div>
+    <div class="pr">Simplicidade máxima. Data + impacto. Nada mais precisa de ser dito.</div>
+    <div class="pf"><div class="p" id="p7">
+      <div class="photo" style="background-image:url('img/IMG_1164.jpg');background-position:center 22%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">Primeira travessia</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Inauguração · Temporada 2025</div>
+          <div class="hs">
+            <span class="hi">9 de maio.</span>
+            <span class="hu" style="color:var(--gold);font-size:144px;letter-spacing:-6px">É O INÍCIO.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn" style="font-size:130px">9</div>
+              <div class="dt" style="padding-bottom:14px"><div class="dm" style="font-size:40px">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 08 -->
+  <div class="pw">
+    <div class="pl">08 — Cinco meses por ano</div>
+    <div class="pr">Sazonalidade como escassez. Esta água só existe assim de maio a setembro.</div>
+    <div class="pf"><div class="p" id="p8">
+      <div class="photo" style="background-image:url('img/IMG_1089.jpg');background-position:center 18%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio · Abertura</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Inauguração da temporada 2025</div>
+          <div class="hs">
+            <span class="hi">Esta água só existe assim</span>
+            <span class="hu" style="color:var(--aqua);font-size:104px;letter-spacing:-3px">CINCO MESES POR ANO.</span>
+          </div>
+          <div class="sub">O primeiro começa agora.</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Ilha da Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 09 -->
+  <div class="pw">
+    <div class="pl">09 — Os primeiros chegam primeiro</div>
+    <div class="pr">Quem reserva cedo vive a ilha como ela deve ser: sem multidões.</div>
+    <div class="pf"><div class="p" id="p9">
+      <div class="photo" style="background-image:url('img/IMG_1076.jpg');background-position:center 14%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Temporada 2025 · Abertura</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">9 de Maio · Primeira travessia</div>
+          <div class="hs">
+            <span class="hi">Os primeiros a reservar</span>
+            <span class="hu" style="font-size:100px;letter-spacing:-3px">SÃO OS PRIMEIROS A CHEGAR.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 10 -->
+  <div class="pw">
+    <div class="pl">10 — Preparámos este dia</div>
+    <div class="pr">Meses de preparação. A marca fala com orgulho. Um convite com peso.</div>
+    <div class="pf"><div class="p" id="p10">
+      <div class="photo" style="background-image:url('img/IMG_1165.jpg');background-position:center 8%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bw">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Inauguração · Temporada 2025</div>
+          <div class="hs">
+            <span class="hi">Preparámos este dia durante meses.</span>
+            <span class="hu" style="color:var(--gold);font-size:124px;letter-spacing:-5px">ESTAMOS PRONTOS.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn" style="font-size:130px">9</div>
+              <div class="dt" style="padding-bottom:14px"><div class="dm" style="font-size:40px">Maio</div><div class="dy">2025</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div><!-- /gallery sec1 -->
+
+
+<!-- ══════════════════════════════════════
+     SECÇÃO 2 — CONVERSÃO
+══════════════════════════════════════ -->
+<div class="sec">
+  <div class="sec-line"></div>
+  <div class="sec-body">
+    <div class="sec-tag aqua">Secção 2 · Posts 11–20</div>
+    <div class="sec-title">Conversão · Reserva</div>
+    <div class="sec-sub">urgência · valor · decisão · cada post com um papel no funil</div>
+  </div>
+  <div class="sec-line"></div>
+</div>
+
+<div class="gallery">
+
+  <!-- 11 -->
+  <div class="pw">
+    <div class="pl">11 — Escassez + prova social</div>
+    <div class="pr">Em 2024 esgotou. A memória coletiva é o melhor argumento de venda.</div>
+    <div class="pf"><div class="p" id="p11">
+      <div class="photo" style="background-image:url('img/IMG_0985.jpg');background-position:center top"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Reservas abertas · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Temporada 2025 · Berlenga</div>
+          <div class="hs">
+            <span class="hi">Em 2024 esgotou em dias.</span>
+            <span class="hu" style="color:var(--gold);font-size:120px;letter-spacing:-5px">NÃO ESPERES.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg csm">Reservar em viamar.pt</div>
+            <div class="mt">
+              <div class="mr">9 Maio <span class="ar">·</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="pw">
+    <div class="pl">12 — O barco não espera</div>
+    <div class="pr">Horário concreto elimina procrastinação. O barco parte. Com ou sem ti.</div>
+    <div class="pf"><div class="p" id="p12">
+      <div class="photo" style="background-image:url('img/IMG_1019.jpg');background-position:center 18%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab" style="background:linear-gradient(to right,#ef4444,rgba(239,68,68,.03))"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg br">Lugares limitados</div>
+        </div>
+        <div class="bot">
+          <div class="ey er">9 de Maio · Peniche · 9h30</div>
+          <div class="hs">
+            <span class="hi">O barco parte às 9h30.</span>
+            <span class="hu" style="font-size:130px;letter-spacing:-5px">COM OU SEM TI.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta ce csm">Garantir o meu lugar</div>
+            <div class="mt"><div class="mh">@viamar.pt</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 13 -->
+  <div class="pw">
+    <div class="pl">13 — Transformação emocional</div>
+    <div class="pr">Vende o resultado que o cliente vai sentir, não o serviço que compra.</div>
+    <div class="pf"><div class="p" id="p13">
+      <div class="photo" style="background-image:url('img/IMG_1086.jpg');background-position:center 22%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Primeira travessia · Berlenga</div>
+          <div class="hs">
+            <span class="hi">Há uma versão de ti que ainda</span>
+            <span class="hi" style="color:rgba(255,255,255,.55)">não conhece a Berlenga.</span>
+            <span class="hu" style="color:var(--aqua);font-size:120px;letter-spacing:-5px;margin-top:4px">AINDA.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Ilha da Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 14 -->
+  <div class="pw">
+    <div class="pl">14 — Presente / Grupo</div>
+    <div class="pr">O melhor presente não cabe numa caixa. Cabe num barco.</div>
+    <div class="pf"><div class="p" id="p14">
+      <div class="photo" style="background-image:url('img/IMG_1122.jpg');background-position:center 42%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">9 Maio · Berlenga</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Grupos e famílias · Lugares disponíveis</div>
+          <div class="hs">
+            <span class="hi">O melhor presente não cabe numa caixa.</span>
+            <span class="hu" style="color:var(--gold);font-size:112px;letter-spacing:-4px">CABE NUM BARCO.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg csm">Reservar lugares</div>
+            <div class="mt"><div class="mh">@viamar.pt</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 15 -->
+  <div class="pw">
+    <div class="pl">15 — Ancoragem de valor</div>
+    <div class="pr">Nunca apresentes o preço sem primeiro mostrar o valor. O preço parece insignificante depois.</div>
+    <div class="pf"><div class="p" id="p15">
+      <div class="photo" style="background-image:url('img/IMG_1164.jpg');background-position:center 22%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Reservas abertas</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">9 Maio · Primeira travessia · 2025</div>
+          <div class="hs">
+            <span class="hi">Quanto custa um dia</span>
+            <span class="hu" style="color:var(--gold);font-size:112px;letter-spacing:-4px">QUE NUNCA ESQUECES?</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28)">A partir de</div>
+              <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:88px;line-height:1;color:var(--gold);letter-spacing:-3px">35€</div>
+              <div style="font-size:15px;color:rgba(255,255,255,.28);letter-spacing:.5px">por pessoa · ida e volta</div>
+            </div>
+            <div class="mt" style="justify-content:flex-end">
+              <div class="cta cg csm" style="margin-bottom:8px">viamar.pt</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 16 -->
+  <div class="pw">
+    <div class="pl">16 — Especificidade gera confiança</div>
+    <div class="pr">Data, hora, porto, destino. Detalhe operacional = marca profissional.</div>
+    <div class="pf"><div class="p" id="p16">
+      <div class="photo" style="background-image:url('img/IMG_1166.jpg');background-position:center 30%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Tudo o que precisas de saber</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:22px">
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:32px 28px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:10px">Data</div>
+              <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:68px;line-height:1;color:var(--gold);letter-spacing:-3px">9 Mai</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:32px 28px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:10px">Partida</div>
+              <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:68px;line-height:1;color:#fff;letter-spacing:-3px">9h30</div>
+            </div>
+            <div style="background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.12);padding:32px 28px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:10px">Porto</div>
+              <div style="font-weight:700;font-size:32px;color:rgba(255,255,255,.8);line-height:1.2">Porto de<br>Peniche</div>
+            </div>
+            <div style="background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.12);padding:32px 28px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:10px">Destino</div>
+              <div style="font-weight:700;font-size:32px;color:var(--aqua);line-height:1.2">Ilha da<br>Berlenga</div>
+            </div>
+          </div>
+          <div class="fr">
+            <div class="cta cg csm">Reservar em viamar.pt</div>
+            <div class="mh">@viamar.pt</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 17 -->
+  <div class="pw">
+    <div class="pl">17 — Dois minutos. Elimina fricção.</div>
+    <div class="pr">"Depois faço" é o inimigo da reserva. Dois minutos retira a desculpa.</div>
+    <div class="pf"><div class="p" id="p17">
+      <div class="photo" style="background-image:url('img/IMG_1089.jpg');background-position:center 18%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">Reservas abertas</div>
+        </div>
+        <div class="bot">
+          <div class="ey ed">9 Maio · Berlenga · 2025</div>
+          <div class="hs">
+            <span class="hi">A única coisa que te separa da Berlenga:</span>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-top:4px">
+              <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:180px;line-height:.85;color:var(--gold);letter-spacing:-7px">2</span>
+              <span style="font-weight:800;font-size:48px;color:rgba(255,255,255,.52);text-transform:uppercase;letter-spacing:2px;padding-bottom:18px">minutos.</span>
+            </div>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg cmd">viamar.pt → Reservar</div>
+            <div class="mt"><div class="mh">@viamar.pt</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 18 -->
+  <div class="pw">
+    <div class="pl">18 — Pergunta directa. Ativa a decisão.</div>
+    <div class="pr">Toda a gente está a reservar menos tu. Pressão social sem ser agressivo.</div>
+    <div class="pf"><div class="p" id="p18">
+      <div class="photo" style="background-image:url('img/IMG_0984.jpg');background-position:center top"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">9 Maio · Berlenga</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Primeira travessia · 2025</div>
+          <div class="hs">
+            <span class="hi">Toda a gente está a reservar.</span>
+            <span class="hu" style="color:var(--gold);font-size:144px;letter-spacing:-6px">E TU?</span>
+          </div>
+          <div class="sub">Se não é agora, quando é?</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg csm">Reservar agora</div>
+            <div class="mt">
+              <div class="mr">viamar.pt</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 19 -->
+  <div class="pw">
+    <div class="pl">19 — Mecânica viral. Partilha.</div>
+    <div class="pr">Manda a alguém que precisa de sair. Reach orgânico + sentido de cuidar do outro.</div>
+    <div class="pf"><div class="p" id="p19">
+      <div class="photo" style="background-image:url('img/IMG_1155.jpg');background-position:center 12%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Berlenga · Primeira travessia</div>
+          <div class="hs">
+            <span class="hi">Manda isto a alguém</span>
+            <span class="hu" style="color:var(--aqua);font-size:128px;letter-spacing:-5px">QUE PRECISA</span>
+            <span class="hi" style="color:rgba(255,255,255,.4);font-size:72px;margin-top:4px">de sair daqui. ↓</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Ilha da Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 20 -->
+  <div class="pw">
+    <div class="pl">20 — Loss aversion. Fecha a decisão.</div>
+    <div class="pr">Em setembro vais arrepender-te. Perder é mais doloroso do que ganhar.</div>
+    <div class="pf"><div class="p" id="p20">
+      <div class="photo" style="background-image:url('img/IMG_1076.jpg');background-position:center 14%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">Lugares a esgotar</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">9 de Maio · Primeira travessia · 2025</div>
+          <div class="hs">
+            <span class="hi">Em setembro vais lembrar-te deste post.</span>
+            <span class="hu" style="color:var(--gold);font-size:116px;letter-spacing:-4px">NÃO ESPERES.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg cmd">viamar.pt → Reservar</div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div><!-- /gallery sec2 -->
+
+
+<!-- ══════════════════════════════════════
+     SECÇÃO 3 — ARROJADO · SEM FILTRO
+══════════════════════════════════════ -->
+<div class="sec">
+  <div class="sec-line"></div>
+  <div class="sec-body">
+    <div class="sec-tag red">Secção 3 · Posts 21–30</div>
+    <div class="sec-title">Arrojado · Sem filtro</div>
+    <div class="sec-sub">copy que corta · foto como herói absoluto · venda sem pedir desculpa</div>
+  </div>
+  <div class="sec-line"></div>
+</div>
+
+<div class="gallery">
+
+  <!-- 21 — Ultra-minimal. Uma palavra. -->
+  <div class="pw">
+    <div class="pl">21 — Uma palavra. A foto fecha.</div>
+    <div class="pr">Nadar aqui. Ponto. O minimalismo convence quem já estava convencido.</div>
+    <div class="pf"><div class="p" id="p21">
+      <div class="photo" style="background-image:url('img/IMG_1122.jpg');background-position:center 40%"></div>
+      <!-- Só gradiente nas margens, foto quase a nu -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,17,31,.97) 0%,rgba(7,17,31,.6) 12%,rgba(7,17,31,.08) 24%,transparent 34%)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,17,31,.72) 0%,transparent 16%)"></div>
+      <div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh" style="padding-bottom:72px">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio 2025</div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:192px;line-height:.87;color:#fff;letter-spacing:-7px">Nadar</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:192px;line-height:.87;color:var(--aqua);letter-spacing:-7px;text-transform:uppercase">AQUI.</div>
+          <div style="margin-top:28px;display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:18px;font-weight:300;color:rgba(255,255,255,.38);letter-spacing:1px">Peniche → Ilha da Berlenga · 9 Maio</div>
+            <div style="font-size:14px;color:rgba(255,255,255,.18)">@viamar.pt</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 22 — Portugal tem uma ilha secreta -->
+  <div class="pw">
+    <div class="pl">22 — Portugal tem uma ilha secreta</div>
+    <div class="pr">Trigger de descoberta. Shareável. Quem lê sente que vai partilhar algo que poucos sabem.</div>
+    <div class="pf"><div class="p" id="p22">
+      <div class="photo" style="background-image:url('img/IMG_1164.jpg');background-position:center 20%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">9 Maio · Reservas abertas</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">Berlenga Grande · Reserva Natural</div>
+          <div class="hs">
+            <span class="hi">Portugal tem uma ilha</span>
+            <span class="hu" style="font-size:148px;letter-spacing:-6px">SECRETA.</span>
+          </div>
+          <div class="sub">Nós levamos-te lá.</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg csm">viamar.pt → Descobrir</div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 23 — Diz-me uma água mais bonita. Exato. -->
+  <div class="pw">
+    <div class="pl">23 — Desafia. Provoca. Convida.</div>
+    <div class="pr">Retórica que gera comentários e reach. A resposta óbvia já é a conversão.</div>
+    <div class="pf"><div class="p" id="p23">
+      <div class="photo" style="background-image:url('img/IMG_1089.jpg');background-position:center 18%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">Berlenga · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Ilha da Berlenga · Portugal</div>
+          <div class="hs">
+            <span class="hi">Diz-me uma água mais bonita do que esta.</span>
+            <span class="hu" style="color:var(--aqua);font-size:152px;letter-spacing:-6px">EXATO.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt"><div class="mh">@viamar.pt</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 24 — O luxo de desligar -->
+  <div class="pw">
+    <div class="pl">24 — O luxo de desligar</div>
+    <div class="pr">Desconexão como privilégio. Vende o "não ter nada" como a coisa mais desejada do mundo moderno.</div>
+    <div class="pf"><div class="p" id="p24">
+      <div class="photo" style="background-image:url('img/IMG_1086.jpg');background-position:center 20%"></div>
+      <div class="gb"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-w"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bw">9 Maio · Berlenga</div>
+        </div>
+        <div class="bot">
+          <div class="ey ed">Ilha da Berlenga · Reserva Natural</div>
+          <div class="hs">
+            <span class="hi">Aqui não tem sinal.</span>
+            <span class="hu" style="font-size:128px;letter-spacing:-5px">TEM ALGO MELHOR.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 25 — Não vendemos bilhetes -->
+  <div class="pw">
+    <div class="pl">25 — Não vendemos bilhetes</div>
+    <div class="pr">Reframe total do produto. Não somos transporte. Somos memórias.</div>
+    <div class="pf"><div class="p" id="p25">
+      <div class="photo" style="background-image:url('img/IMG_0985.jpg');background-position:center top"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">VIAMAR · Peniche → Berlenga</div>
+          <div class="hs">
+            <span class="hi">Não vendemos bilhetes.</span>
+            <span class="hu" style="color:var(--gold);font-size:120px;letter-spacing:-5px">VENDEMOS MEMÓRIAS.</span>
+          </div>
+          <div class="sub">O dia que vais contar aos netos.</div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg csm">viamar.pt</div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 26 — 400 anos de história -->
+  <div class="pw">
+    <div class="pl">26 — 400 anos. Uma água recém-criada.</div>
+    <div class="pr">Contraste poético entre o tempo do forte e a frescura da água. Arma a emoção antes do CTA.</div>
+    <div class="pf"><div class="p" id="p26">
+      <div class="photo" style="background-image:url('img/IMG_1155.jpg');background-position:center 12%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">Berlenga · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">Forte de São João Baptista · Séc. XVII</div>
+          <div class="hs">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:144px;line-height:.85;color:transparent;-webkit-text-stroke:1.5px rgba(6,182,212,.42);letter-spacing:-6px">400 anos.</span>
+            <span class="hu" style="color:var(--aqua);font-size:96px;letter-spacing:-3px;margin-top:6px">UMA ÁGUA RECÉM-CRIADA.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta ca csm">Reservar · viamar.pt</div>
+            <div class="mt"><div class="mh">@viamar.pt</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 27 — Chegaste a Peniche. Falta o melhor. -->
+  <div class="pw">
+    <div class="pl">27 — Chegaste a Peniche. Falta o melhor.</div>
+    <div class="pr">Fala directamente a quem já está em Peniche ou planeia ir. Baixa o custo de decisão.</div>
+    <div class="pf"><div class="p" id="p27">
+      <div class="photo" style="background-image:url('img/IMG_1019.jpg');background-position:center 18%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">9 Maio · Porto de Peniche</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">VIAMAR · Peniche → Berlenga</div>
+          <div class="hs">
+            <span class="hi">Chegaste a Peniche.</span>
+            <span class="hu" style="color:var(--gold);font-size:128px;letter-spacing:-5px">FALTA O MELHOR.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg csm">viamar.pt → 9 Maio</div>
+            <div class="mt">
+              <div class="mr"><span class="ar">→</span> Ilha da Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 28 — Não tem hotéis de luxo. Não precisa. -->
+  <div class="pw">
+    <div class="pl">28 — Autenticidade como luxo</div>
+    <div class="pr">Inverte a lógica do turismo de luxo. O que não tem é o que a torna especial.</div>
+    <div class="pf"><div class="p" id="p28">
+      <div class="photo" style="background-image:url('img/IMG_1165.jpg');background-position:center 8%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-w"></div><div class="cbr"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bw">Berlenga · 9 Maio</div>
+        </div>
+        <div class="bot">
+          <div class="ey ed">Berlenga Grande · Área Marinha Protegida</div>
+          <div class="hs">
+            <span class="hi">A Berlenga não tem hotéis de luxo.</span>
+            <span class="hu" style="font-size:136px;letter-spacing:-5px">NÃO PRECISA.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="db">
+              <div class="dn">9</div>
+              <div class="dt"><div class="dm">Maio</div><div class="dy">2025 · viamar.pt</div></div>
+            </div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 29 — Ficará na história da tua família -->
+  <div class="pw">
+    <div class="pl">29 — Memória geracional</div>
+    <div class="pr">Projecta o comprador para o futuro. Não estás a vender um bilhete — estás a criar uma memória familiar.</div>
+    <div class="pf"><div class="p" id="p29">
+      <div class="photo" style="background-image:url('img/IMG_1166.jpg');background-position:center 28%"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-g"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg bg">9 Maio 2025</div>
+        </div>
+        <div class="bot">
+          <div class="ey eg">VIAMAR · Berlenga · Temporada 2025</div>
+          <div class="hs">
+            <span class="hi">9 de maio ficará na história</span>
+            <span class="hu" style="color:var(--gold);font-size:120px;letter-spacing:-5px">DA TUA FAMÍLIA.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta cg cmd">Reservar agora</div>
+            <div class="mt">
+              <div class="mr">viamar.pt</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 30 — O barco tem nome. O destino também. -->
+  <div class="pw">
+    <div class="pl">30 — O barco tem nome. O destino também.</div>
+    <div class="pr">Humaniza a marca. Nome próprio cria ligação emocional. Detalhe que nenhum concorrente tem.</div>
+    <div class="pf"><div class="p" id="p30">
+      <div class="photo" style="background-image:url('img/IMG_0984.jpg');background-position:center top"></div>
+      <div class="gb-s"></div><div class="gt"></div><div class="gr"></div>
+      <div class="ab ab-a"></div>
+      <div class="sh">
+        <div class="tp">
+          <img class="logo" src="img/logo viamar.png" alt="VIAMAR" />
+          <div class="bdg ba">9 Maio · Reservas abertas</div>
+        </div>
+        <div class="bot">
+          <div class="ey ea">VIAMAR · Porto de Peniche</div>
+          <div class="hs">
+            <span class="hi" style="font-size:68px">O barco chama-se Cabo Avelar Pessoa.</span>
+            <span class="hi" style="color:rgba(255,255,255,.48);font-size:68px">O destino chama-se</span>
+            <span class="hu" style="color:var(--aqua);font-size:104px;letter-spacing:-3px">O MELHOR DIA DO ANO.</span>
+          </div>
+          <div class="rule"></div>
+          <div class="fr">
+            <div class="cta ca csm">viamar.pt → 9 Maio</div>
+            <div class="mt">
+              <div class="mr">Peniche <span class="ar">→</span> Berlenga</div>
+              <div class="mh">@viamar.pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+</div><!-- /gallery sec3 -->
+</body>
+</html>
