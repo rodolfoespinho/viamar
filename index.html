@@ -345,11 +345,10 @@
       overflow-x: auto;
     }
     .trust-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 18px 32px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 18px 24px; flex: 1;
       border-right: 1px solid var(--g200);
     }
-    .trust-item:first-child { padding-left: 0; }
     .trust-item:last-child { border-right: none; }
     .ti-icon { font-size: 22px; }
     .ti-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.2; }
@@ -760,9 +759,12 @@
     .pkg-badge .icon svg { width: 11px; height: 11px; stroke: var(--navy); }
     .urgency .icon svg { width: 15px; height: 15px; stroke: #fde68a; vertical-align: middle; }
 
-    /* Trust strip: hide scrollbar */
+    /* Trust strip: hide scrollbar + keep items scrollable on mobile */
     .trust-inner { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .trust-inner::-webkit-scrollbar { display: none; }
+    @media (max-width: 768px) {
+      .trust-item { flex: 0 0 auto; justify-content: flex-start; }
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 960px) {
