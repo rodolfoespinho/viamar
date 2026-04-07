@@ -6,14 +6,14 @@
   <title>Viamar — Travessias à Ilha da Berlenga</title>
 
   <!-- ─── SEO ─── -->
-  <meta name="description" content="Viaje à Ilha da Berlenga com a Viamar. Travessias marítimas a partir de Peniche — bilhetes de ida, volta e visita à ilha. Reserve online com BerlengasPass incluído." />
+  <meta name="description" content="Viaje à Ilha da Berlenga com a Viamar. Travessias marítimas a partir de Peniche — bilhetes de ida, volta e visita à ilha. Reserve online." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://viamar-berlenga.com/" />
 
   <!-- ─── Open Graph ─── -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Viamar — Travessias à Ilha da Berlenga" />
-  <meta property="og:description" content="Viaje à Ilha da Berlenga com a Viamar. Travessias marítimas a partir de Peniche — reserve online com BerlengasPass incluído." />
+  <meta property="og:description" content="Viaje à Ilha da Berlenga com a Viamar. Travessias marítimas a partir de Peniche — reserve online." />
   <meta property="og:url" content="https://viamar-berlenga.com/" />
   <meta property="og:image" content="https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -24,7 +24,7 @@
   <!-- ─── Twitter Card ─── -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Viamar — Travessias à Ilha da Berlenga" />
-  <meta name="twitter:description" content="Travessias marítimas a partir de Peniche com BerlengasPass incluído. Reserve online." />
+  <meta name="twitter:description" content="Travessias marítimas a partir de Peniche até à Ilha da Berlenga. Reserve online." />
   <meta name="twitter:image" content="https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg" />
 
   <!-- ─── Favicon ─── -->
@@ -39,7 +39,7 @@
     "@id": "https://viamar-berlenga.com/#business",
     "name": "Viamar",
     "url": "https://viamar-berlenga.com/",
-    "description": "Travessias marítimas à Ilha da Berlenga a partir de Peniche. Bilhetes de ida, volta e visita com BerlengasPass incluído.",
+    "description": "Travessias marítimas à Ilha da Berlenga a partir de Peniche. Bilhetes de ida, volta e visita à ilha.",
     "image": "https://viamar-berlenga.com/img/freepik__enhance-the-cinematic-feel-on-this-photo__34302.jpg",
     "address": {
       "@type": "PostalAddress",
@@ -152,7 +152,10 @@
     }
     .nav-cta:hover { background: var(--gold-hover) !important; transform: translateY(-1px); }
     .nav-right { display: flex; align-items: center; gap: 16px; }
-    .nav-lang { font-size: 12px; color: rgba(255,255,255,0.3); cursor: pointer; letter-spacing: 1px; }
+    .nav-lang { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 1px; display: flex; align-items: center; gap: 5px; }
+    .lang-btn { background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.3); padding: 2px 4px; border-radius: 4px; transition: color .15s; font-family: inherit; }
+    .lang-btn:hover { color: rgba(255,255,255,0.7); }
+    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
     .nav-phone { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; }
     .nav-phone:hover { color: #fff; }
 
@@ -570,26 +573,46 @@
 
     /* ─── SCHEDULES ─── */
     .sched-sec { background: var(--off); }
-    .sched-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .sched-card { background: #fff; border-radius: var(--r); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .sched-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .sched-card { background: #fff; border-radius: var(--r); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1.5px solid #e2e8f0; }
+    .sched-card.peak { border-color: var(--gold); box-shadow: 0 4px 32px rgba(245,158,11,0.18); }
     .sched-head {
-      background: var(--navy); color: #fff; padding: 18px 24px;
-      display: flex; justify-content: space-between; align-items: center;
+      background: var(--navy); color: #fff; padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
     }
-    .sched-season { font-size: 15px; font-weight: 800; }
-    .sched-dates { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
-    .sched-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; font-style: italic; }
-    .sched-rows { }
-    .sched-row {
-      display: flex; align-items: center; padding: 14px 24px;
-      border-bottom: 1px solid var(--off);
-      transition: background .15s;
+    .sched-card.peak .sched-head { background: var(--gold); }
+    .sched-dates { font-size: 13px; font-weight: 700; color: #fff; }
+    .sched-card.peak .sched-dates { color: var(--navy); }
+    .sched-season {
+      font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
     }
-    .sched-row:last-child { border-bottom: none; }
-    .sched-row:hover { background: var(--off); }
-    .sched-time { font-size: 16px; font-weight: 800; color: var(--navy); width: 72px; }
-    .sched-dir { flex: 1; font-size: 13px; color: var(--g600); display: flex; align-items: center; gap: 6px; }
-    .sched-arrow { color: var(--aqua); font-size: 14px; }
+    .sched-card.peak .sched-season { background: rgba(0,0,0,0.12); color: var(--navy); }
+    /* trip rows */
+    .sched-trip-row { display: flex; align-items: stretch; border-top: 1px solid #f1f5f9; }
+    .sched-trip-row:first-child { border-top: none; }
+    .sched-trip-label {
+      background: #f8fafc; border-right: 1px solid #f1f5f9;
+      padding: 14px 16px; min-width: 158px; max-width: 158px;
+      display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+    }
+    .sched-trip-icon { font-size: 15px; flex-shrink: 0; line-height: 1; }
+    .sched-trip-days { font-size: 11px; font-weight: 700; color: var(--navy); line-height: 1.4; white-space: nowrap; }
+    .sched-trip-days span { font-weight: 400; color: #94a3b8; display: block; font-size: 10px; margin-top: 1px; }
+    .sched-trip-times { flex: 1; display: flex; align-items: center; gap: 8px; padding: 12px 16px; flex-wrap: wrap; }
+    .time-chip {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--navy); color: #fff;
+      border-radius: 8px; padding: 7px 13px;
+    }
+    .sched-card.peak .time-chip { background: var(--gold); color: var(--navy); }
+    .time-chip.secondary { background: #e0f7fa; color: var(--navy); }
+    .sched-card.peak .time-chip.secondary { background: #fff8e1; color: var(--navy); }
+    .time-chip .t { font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.3px; }
+    .time-chip .arr { font-size: 11px; opacity: 0.4; margin: 0 1px; }
+    .tc-divider { width: 1px; height: 20px; background: #e2e8f0; flex-shrink: 0; }
+    /* FH live tags (kept for API integration) */
     .sched-tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
     .sched-tag.ok { background: #ecfdf5; color: #065f46; }
     .sched-tag.low { background: #fef3c7; color: #92400e; }
@@ -672,7 +695,7 @@
     footer { background: #040b14; color: rgba(255,255,255,0.5); padding: 56px 40px 32px; }
     .footer-grid {
       max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
       margin-bottom: 40px;
     }
     .footer-brand {
@@ -759,19 +782,32 @@
       .reviews-top { flex-direction: column; }
       .boat-content { grid-template-columns: 1fr; }
       .sched-grid { grid-template-columns: 1fr; }
-      .sched-row { padding: 13px 18px; }
-      .sched-head { padding: 16px 18px; }
+      .sched-head { padding: 12px 18px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .cap-form { flex-direction: column; }
       .sec { padding: 56px 20px; }
     }
     @media (max-width: 480px) {
-      .sched-row { padding: 12px 16px; }
-      .sched-head { padding: 14px 16px; }
-      .sched-time { font-size: 15px; width: 58px; }
-      .sched-dir { font-size: 12px; }
-      .sched-tag { font-size: 10px; padding: 3px 8px; }
+      .sched-head { padding: 10px 14px; }
+      .sched-dates { font-size: 12px; }
+      /* mobile: empilha label em cima, chips em baixo */
+      .sched-trip-row { flex-direction: column; }
+      .sched-trip-label {
+        min-width: unset; max-width: unset; width: 100%;
+        border-right: none; border-bottom: 1px solid #f1f5f9;
+        padding: 8px 14px; gap: 8px;
+      }
+      .sched-trip-days { display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+      .sched-trip-days span { display: inline; margin-top: 0; font-size: 10px; }
+      .sched-trip-times { padding: 12px 14px; gap: 8px; flex-wrap: nowrap; }
+      .tc-divider { width: 1px; height: 22px; }
+      .time-chip { padding: 7px 14px; flex-shrink: 0; }
+      .time-chip .t { font-size: 14px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      footer { padding: 40px 20px 100px; }
+      .footer-bottom { flex-wrap: wrap; gap: 12px; }
+      .footer-certs { gap: 8px; }
+      .cert-badge { font-size: 10px; padding: 4px 8px; }
       .hero-h1 { font-size: clamp(32px, 9vw, 44px); letter-spacing: -0.5px; margin-bottom: 14px; }
       .hero-sub { font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
       .hero-badge { font-size: 10px; margin-bottom: 14px; }
@@ -804,15 +840,19 @@
     <img src="img/logo viamar.png" alt="Viamar Ferry Berlenga" class="nav-logo-img">
   </a>
   <ul class="nav-links">
-    <li><a href="#horarios">Horários</a></li>
-    <li><a href="#pacotes">Pacotes</a></li>
-    <li><a href="#galeria">A Ilha</a></li>
+    <li><a href="#horarios" data-i18n="nav.schedule">Horários</a></li>
+    <li><a href="#pacotes" data-i18n="nav.packages">Pacotes</a></li>
+    <li><a href="#galeria" data-i18n="nav.island">A Ilha</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="nav-cta">Reservar agora →</a></li>
+    <li><a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.book">Reservar agora →</a></li>
   </ul>
   <div class="nav-right">
     <a href="tel:+351911001099" class="nav-phone">+351 911 001 099</a>
-    <span class="nav-lang">PT | EN</span>
+    <span class="nav-lang">
+      <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
+      <span>|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </span>
   </div>
 </nav>
 
@@ -832,19 +872,19 @@
 
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-badge"><span class="icon"><i data-lucide="landmark"></i></span> Património Mundial UNESCO</div>
+      <div class="hero-badge"><span class="icon"><i data-lucide="landmark"></i></span> <span data-i18n="hero.badge">Património Mundial UNESCO</span></div>
       <h1 class="hero-h1">
-        A travessia para a
+        <span data-i18n="hero.h1a">A travessia para a</span>
         <span class="line2">Ilha da Berlenga</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" data-i18n="hero.sub">
         Há mais de 60 anos a levar famílias e aventureiros à reserva natural mais bonita de Portugal.
         A viagem já faz parte da experiência.
       </p>
       <div class="hero-proof">
         <div class="proof-item">
           <span class="proof-num">18k+</span>
-          <span class="proof-label">passageiros/ano</span>
+          <span class="proof-label" data-i18n="proof.passengers">passageiros/ano</span>
         </div>
         <div class="proof-div"></div>
         <div class="proof-item">
@@ -854,40 +894,40 @@
         <div class="proof-div"></div>
         <div class="proof-item">
           <span class="proof-num">60+</span>
-          <span class="proof-label">anos de travessias</span>
+          <span class="proof-label" data-i18n="proof.years">anos de travessias</span>
         </div>
         <div class="proof-div"></div>
         <div class="proof-item">
           <span class="proof-num">706</span>
-          <span class="proof-label">avaliações</span>
+          <span class="proof-label" data-i18n="proof.reviews">avaliações</span>
         </div>
       </div>
       <div class="hero-actions">
-        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-hero-primary"><span class="icon"><i data-lucide="calendar"></i></span> Reservar travessia</a>
-        <a href="#galeria" class="btn-hero-ghost">Ver a ilha <span class="icon"><i data-lucide="arrow-right"></i></span></a>
+        <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-hero-primary"><span class="icon"><i data-lucide="calendar"></i></span> <span data-i18n="hero.book">Reservar travessia</span></a>
+        <a href="#galeria" class="btn-hero-ghost"><span data-i18n="hero.see">Ver a ilha</span> <span class="icon"><i data-lucide="arrow-right"></i></span></a>
       </div>
     </div>
 
     <!-- BOOKING WIDGET -->
     <div class="booking-float" id="reservar">
-      <div class="bf-title">Reservar travessia</div>
-      <div class="bf-sub">Escolhe data · Confirma · Embarca</div>
+      <div class="bf-title" data-i18n="book.title">Reservar travessia</div>
+      <div class="bf-sub" data-i18n="book.sub">Escolhe data · Confirma · Embarca</div>
       <div class="avail-pill">
         <div class="avail-dot"></div>
-        <span class="avail-txt">Disponível para reserva</span>
-        <span class="spots-badge"><span class="icon"><i data-lucide="alert-triangle"></i></span> Poucos lugares</span>
+        <span class="avail-txt" data-i18n="book.avail">Disponível para reserva</span>
+        <span class="spots-badge"><span class="icon"><i data-lucide="alert-triangle"></i></span> <span data-i18n="book.spots">Poucos lugares</span></span>
       </div>
       <select class="bf-select" id="dateSelect" onchange="onDateChange()">
-        <option value="">A carregar datas…</option>
+        <option value="" data-i18n="book.loading">A carregar datas…</option>
       </select>
-      <select class="bf-select">
-        <option>Ida e Volta (recomendado)</option>
-        <option>→ Só Ida</option>
-        <option>← Só Volta</option>
+      <select class="bf-select" id="tripTypeSelect">
+        <option data-i18n="book.roundtrip">Ida e Volta (recomendado)</option>
+        <option data-i18n="book.oneway">→ Só Ida</option>
+        <option data-i18n="book.return">← Só Volta</option>
       </select>
       <div class="pax-row">
         <div class="pax-group">
-          <label>Adultos</label>
+          <label data-i18n="book.adults">Adultos</label>
           <div class="pax-ctrl">
             <button class="pax-btn" onclick="adj('a',-1)">−</button>
             <span class="pax-val" id="aVal">2</span>
@@ -895,7 +935,7 @@
           </div>
         </div>
         <div class="pax-group">
-          <label>Crianças</label>
+          <label data-i18n="book.children">Crianças</label>
           <div class="pax-ctrl">
             <button class="pax-btn" onclick="adj('k',-1)">−</button>
             <span class="pax-val" id="kVal">0</span>
@@ -905,15 +945,14 @@
       </div>
       <div class="price-box" id="priceBox">
         <div class="price-line"><span>2 Adultos × 22€</span><span>44,00€</span></div>
-        <div class="price-line"><span>BerlengasPass × 2 <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>6,00€</span></div>
-        <div class="price-line"><span>Total</span><span>50,00€</span></div>
+        <div class="price-line"><span>Total</span><span>44,00€</span></div>
       </div>
       <a class="btn-book-now" id="btnBookNow"
          href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&language=pt-pt&back=https%3A%2F%2Fviamar-berlenga.com%2F"
          onclick="return bookNow(this, event)">
-        <span class="icon"><i data-lucide="ticket"></i></span> Confirmar reserva
+        <span class="icon"><i data-lucide="ticket"></i></span> <span data-i18n="book.confirm">Confirmar reserva</span>
       </a>
-      <div class="bf-footer"><span class="icon"><i data-lucide="lock"></i></span> Pagamento seguro · Cancelamento gratuito 48h antes</div>
+      <div class="bf-footer"><span class="icon"><i data-lucide="lock"></i></span> <span data-i18n="book.footer">Pagamento seguro · Cancelamento gratuito 48h antes</span></div>
     </div>
   </div>
 
@@ -943,36 +982,29 @@
     <div class="trust-item">
       <span class="ti-icon"><i data-lucide="anchor"></i></span>
       <div class="ti-text">
-        <strong>Operador Licenciado IMT</strong>
-        <span>Autoridade Marítima Nacional</span>
+        <strong data-i18n="trust.imt">Operador Licenciado IMT</strong>
+        <span data-i18n="trust.imt.sub">Autoridade Marítima Nacional</span>
       </div>
     </div>
     <div class="trust-item">
       <span class="ti-icon"><i data-lucide="shield-check"></i></span>
       <div class="ti-text">
-        <strong>Seguro de Passageiros</strong>
-        <span>Cobertura total incluída</span>
-      </div>
-    </div>
-    <div class="trust-item">
-      <span class="ti-icon"><i data-lucide="leaf"></i></span>
-      <div class="ti-text">
-        <strong>BerlengasPass incluído</strong>
-        <span>Taxa de conservação da ilha</span>
+        <strong data-i18n="trust.insurance">Seguro de Passageiros</strong>
+        <span data-i18n="trust.insurance.sub">Cobertura total incluída</span>
       </div>
     </div>
     <div class="trust-item">
       <span class="ti-icon"><i data-lucide="smartphone"></i></span>
       <div class="ti-text">
-        <strong>Bilhete Digital</strong>
-        <span>QR code no telemóvel</span>
+        <strong data-i18n="trust.ticket">Bilhete Digital</strong>
+        <span data-i18n="trust.ticket.sub">QR code no telemóvel</span>
       </div>
     </div>
     <div class="trust-item">
       <span class="ti-icon"><i data-lucide="rotate-ccw"></i></span>
       <div class="ti-text">
-        <strong>Cancelamento Gratuito</strong>
-        <span>Até 48h antes da partida</span>
+        <strong data-i18n="trust.cancel">Cancelamento Gratuito</strong>
+        <span data-i18n="trust.cancel.sub">Até 48h antes da partida</span>
       </div>
     </div>
   </div>
@@ -983,28 +1015,28 @@
   <div class="island-img"></div>
   <div class="island-text">
     <div class="island-text-inner">
-      <div class="island-pill"><span class="icon"><i data-lucide="waves"></i></span> Reserva Natural</div>
-      <h2>Uma ilha que <em>não se esquece</em></h2>
-      <p>A Berlenga é a única ilha habitada do arquipélago das Berlengas — Reserva da Biosfera da UNESCO desde 1984. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.</p>
+      <div class="island-pill"><span class="icon"><i data-lucide="waves"></i></span> <span data-i18n="island.tag">Reserva Natural</span></div>
+      <h2><span data-i18n="island.h2">Uma ilha que <em>não se esquece</em></span></h2>
+      <p data-i18n="island.desc">A Berlenga é a única ilha habitada do arquipélago das Berlengas — Reserva da Biosfera da UNESCO desde 1984. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.</p>
       <div class="island-facts">
         <div class="island-fact">
           <div class="num">40 min</div>
-          <div class="lbl">de travessia desde Peniche</div>
+          <div class="lbl" data-i18n="island.fact1">de travessia desde Peniche</div>
         </div>
         <div class="island-fact">
           <div class="num">1 km²</div>
-          <div class="lbl">de ilha para explorar</div>
+          <div class="lbl" data-i18n="island.fact2">de ilha para explorar</div>
         </div>
         <div class="island-fact">
           <div class="num">UNESCO</div>
-          <div class="lbl">Reserva da Biosfera</div>
+          <div class="lbl" data-i18n="island.fact3">Reserva da Biosfera</div>
         </div>
         <div class="island-fact">
           <div class="num">1509</div>
-          <div class="lbl">Fortaleza histórica</div>
+          <div class="lbl" data-i18n="island.fact4">Fortaleza histórica</div>
         </div>
       </div>
-      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-cta">Reservar agora →</a>
+      <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-cta" data-i18n="nav.book">Reservar agora →</a>
     </div>
   </div>
 </div>
@@ -1031,9 +1063,9 @@
 <!-- PACKAGES -->
 <section class="sec packages-sec" id="pacotes">
   <div class="sec-inner">
-    <div class="sec-tag">O que queres fazer?</div>
-    <h2 class="sec-h">Escolhe a tua experiência</h2>
-    <p class="sec-sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
+    <div class="sec-tag" data-i18n="pkg.tag">O que queres fazer?</div>
+    <h2 class="sec-h" data-i18n="pkg.h2">Escolhe a tua experiência</h2>
+    <p class="sec-sub" data-i18n="pkg.sub">Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.</p>
     <div class="pkg-grid" id="pkgGrid">
       <!-- Renderizado dinamicamente a partir de data/products.json -->
     </div>
@@ -1045,14 +1077,14 @@
   <div class="boat-bg"></div>
   <div class="boat-content">
     <div class="boat-text">
-      <div class="sec-tag">A Nossa Embarcação</div>
+      <div class="sec-tag" data-i18n="boat.tag">A Nossa Embarcação</div>
       <h2 class="sec-h">Cabo Avelar Pessoa.</h2>
-      <p>Há mais de 60 anos a fazer a travessia Peniche–Berlenga. O maior barco desta rota, inspecionado anualmente pela Autoridade Marítima Nacional — com todos os equipamentos de segurança a bordo. Conforto e tranquilidade, mesmo quando o mar decide mostrar músculo.</p>
+      <p data-i18n="boat.desc">Há mais de 60 anos a fazer a travessia Peniche–Berlenga. O maior barco desta rota, inspecionado anualmente pela Autoridade Marítima Nacional — com todos os equipamentos de segurança a bordo. Conforto e tranquilidade, mesmo quando o mar decide mostrar músculo.</p>
       <div class="boat-specs">
-        <div class="bspec"><div class="num">190</div><div class="lbl">passageiros capacidade máxima</div></div>
-        <div class="bspec"><div class="num">45 min</div><div class="lbl">travessia em condições normais</div></div>
-        <div class="bspec"><div class="num">Anual</div><div class="lbl">inspeção pela Autoridade Marítima</div></div>
-        <div class="bspec"><div class="num">100%</div><div class="lbl">seguro de passageiros incluído</div></div>
+        <div class="bspec"><div class="num">190</div><div class="lbl" data-i18n="boat.spec1">passageiros capacidade máxima</div></div>
+        <div class="bspec"><div class="num">45 min</div><div class="lbl" data-i18n="boat.spec2">travessia em condições normais</div></div>
+        <div class="bspec"><div class="num">Anual</div><div class="lbl" data-i18n="boat.spec3">inspeção pela Autoridade Marítima</div></div>
+        <div class="bspec"><div class="num">100%</div><div class="lbl" data-i18n="boat.spec4">seguro de passageiros incluído</div></div>
       </div>
     </div>
   </div>
@@ -1063,9 +1095,9 @@
   <div class="sec-inner">
     <div class="reviews-top">
       <div>
-        <div class="sec-tag">Avaliações reais</div>
-        <h2 class="sec-h">O que dizem os nossos passageiros</h2>
-        <p class="sec-sub" style="margin-bottom:0">Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
+        <div class="sec-tag" data-i18n="rev.tag">Avaliações reais</div>
+        <h2 class="sec-h" data-i18n="rev.h2">O que dizem os nossos passageiros</h2>
+        <p class="sec-sub" style="margin-bottom:0" data-i18n="rev.sub">Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.</p>
       </div>
       <div class="rating-card">
         <div class="r-score">4.5</div>
@@ -1123,9 +1155,9 @@
 <!-- SCHEDULES -->
 <section class="sec sched-sec" id="horarios">
   <div class="sec-inner">
-    <div class="sec-tag" id="schedTag">Horários 2025</div>
-    <h2 class="sec-h">Saídas regulares de Peniche</h2>
-    <p class="sec-sub">Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.</p>
+    <div class="sec-tag" id="schedTag" data-i18n="sched.tag">Horários 2026</div>
+    <h2 class="sec-h" data-i18n="sched.h2">Saídas regulares de Peniche</h2>
+    <p class="sec-sub" data-i18n="sched.sub">Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.</p>
     <div class="sched-grid" id="schedGrid">
       <!-- Renderizado dinamicamente a partir de data/schedules.json -->
     </div>
@@ -1136,14 +1168,14 @@
 <section class="depart-sec">
   <div class="depart-bg"></div>
   <div class="depart-content">
-    <div class="sec-tag">Ponto de partida</div>
-    <h2 class="sec-h">Partimos de Peniche, <br>cidade à beira-mar</h2>
-    <p>O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.</p>
+    <div class="sec-tag" data-i18n="dep.tag">Ponto de partida</div>
+    <h2 class="sec-h" data-i18n="dep.h2">Partimos de Peniche, cidade à beira-mar</h2>
+    <p data-i18n="dep.desc">O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.</p>
     <div class="depart-addr">
       <span class="icon"><i data-lucide="map-pin"></i></span>
       <span>Cais da Ribeira, Peniche — 39°35′N 9°22′W</span>
     </div>
-    <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-cta">Reservar travessia →</a>
+    <a href="https://fareharbor.com/embeds/book/viamar-berlenga/?full-items=yes&flow=738388&u=0add1569-0a96-4a96-bd93-bfeafd85b4a5&from-ssl=yes&ga4t=&g4=no&cp=no&csp=no&back=https%3A%2F%2Fviamar-berlenga.com%2F&language=pt-pt" target="_blank" rel="noopener" class="btn-cta" data-i18n="dep.book">Reservar travessia →</a>
   </div>
 </section>
 
@@ -1151,27 +1183,23 @@
 <section class="capture-sec">
   <div class="capture-bg"></div>
   <div class="capture-inner">
-    <div class="sec-tag">Não percas a época</div>
-    <h2 class="sec-h" style="margin-bottom:12px">Acesso antecipado a datas e promoções</h2>
-    <p class="cap-sub">Recebe primeiro quando abrimos novos horários para 2025 — e preços exclusivos para quem está na lista.</p>
+    <div class="sec-tag" data-i18n="cap.tag">Não percas a época</div>
+    <h2 class="sec-h" style="margin-bottom:12px" data-i18n="cap.h2">Acesso antecipado a datas e promoções</h2>
+    <p class="cap-sub" data-i18n="cap.sub">Recebe primeiro quando abrimos novos horários para 2026 — e preços exclusivos para quem está na lista.</p>
     <div class="cap-form">
-      <input class="cap-input" type="email" placeholder="O teu email" />
-      <button class="btn-cap">Quero ser avisado →</button>
+      <input class="cap-input" type="email" id="capEmail" placeholder="O teu email" data-i18n-ph="cap.ph" />
+      <button class="btn-cap" data-i18n="cap.btn">Quero ser avisado →</button>
     </div>
-    <div class="cap-note">Sem spam. Só avisamos quando há datas novas ou promoções. Cancela quando quiseres.</div>
+    <div class="cap-note" data-i18n="cap.note">Sem spam. Só avisamos quando há datas novas ou promoções. Cancela quando quiseres.</div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="sec faq-sec" id="faq">
   <div class="sec-inner">
-    <div class="sec-tag">Perguntas frequentes</div>
-    <h2 class="sec-h">Tudo o que precisas saber</h2>
+    <div class="sec-tag" data-i18n="faq.tag">Perguntas frequentes</div>
+    <h2 class="sec-h" data-i18n="faq.h2">Tudo o que precisas saber</h2>
     <div class="faq-wrap">
-      <div class="faq-item">
-        <button class="faq-q" onclick="faq(this)">O que é o BerlengasPass e porquê é obrigatório?<span class="faq-icon">+</span></button>
-        <div class="faq-a">O BerlengasPass é uma taxa de conservação ambiental obrigatória para todos os visitantes da Ilha da Berlenga, gerida pela Reserva Natural. O valor financia directamente a protecção do ecossistema marinho. Nós já incluímos no preço — não precisas de tratar de nada extra.</div>
-      </div>
       <div class="faq-item">
         <button class="faq-q" onclick="faq(this)">O que acontece se o mar estiver mau?<span class="faq-icon">+</span></button>
         <div class="faq-a">Em condições adversas, a travessia pode ser cancelada por segurança. Avisamos sempre com antecedência por SMS e email. Tens direito a remarcação gratuita ou reembolso total — sem qualquer custo. A segurança é sempre a prioridade.</div>
@@ -1201,7 +1229,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand"><img src="img/logo viamar.png" alt="Viamar Ferry Berlenga" style="height:44px;width:auto;display:block;margin-bottom:4px;"></div>
-      <div class="footer-desc">Operador marítimo licenciado há mais de 60 anos para travessias à Ilha da Berlenga. Comprometidos com a segurança dos passageiros e a conservação da Reserva Natural das Berlengas.</div>
+      <div class="footer-desc" data-i18n="foot.desc">Operador marítimo licenciado há mais de 60 anos para travessias à Ilha da Berlenga. Comprometidos com a segurança dos passageiros e a conservação da Reserva Natural das Berlengas.</div>
       <div class="footer-contact">
         <div><span class="icon"><i data-lucide="map-pin"></i></span> Cais da Ribeira, Peniche</div>
         <div><span class="icon"><i data-lucide="phone"></i></span> <a href="tel:+351911001099">+351 911 001 099</a></div>
@@ -1210,27 +1238,16 @@
       </div>
     </div>
     <div>
-      <div class="foot-title">Viagem</div>
+      <div class="foot-title" data-i18n="foot.travel">Viagem</div>
       <ul class="foot-links">
         <li><a href="#">Horários & Preços</a></li>
         <li><a href="#">Pacotes</a></li>
         <li><a href="#">Atividades</a></li>
-        <li><a href="#">BerlengasPass</a></li>
         <li><a href="#">Grupos & Escolas</a></li>
       </ul>
     </div>
     <div>
-      <div class="foot-title">A Ilha</div>
-      <ul class="foot-links">
-        <li><a href="#">Sobre a Berlenga</a></li>
-        <li><a href="#">Fortaleza</a></li>
-        <li><a href="#">Flora & Fauna</a></li>
-        <li><a href="#">Como chegar a Peniche</a></li>
-        <li><a href="#">Mapa da ilha</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="foot-title">Ajuda</div>
+      <div class="foot-title" data-i18n="foot.help">Ajuda</div>
       <ul class="foot-links">
         <li><a href="#">FAQ</a></li>
         <li><a href="#">Termos & Condições</a></li>
@@ -1281,13 +1298,11 @@
   function renderPriceBox(adultRate, childRate) {
     const ar = adultRate ?? window._fhAdultRate ?? 22;
     const cr = childRate ?? window._fhChildRate ?? 12;
-    const bp = 3; // BerlengasPass por pessoa
-    const total = pax.a * ar + pax.k * cr + (pax.a + pax.k) * bp;
+    const total = pax.a * ar + pax.k * cr;
     const fmt = v => v.toFixed(2).replace('.', ',');
     document.getElementById('priceBox').innerHTML = `
       <div class="price-line"><span>${pax.a} Adulto${pax.a>1?'s':''} × ${ar}€</span><span>${fmt(pax.a*ar)}€</span></div>
       ${pax.k > 0 ? `<div class="price-line"><span>${pax.k} Criança${pax.k>1?'s':''} × ${cr}€</span><span>${fmt(pax.k*cr)}€</span></div>` : ''}
-      <div class="price-line"><span>BerlengasPass × ${pax.a+pax.k} <span style="font-size:10px;color:#94a3b8">(taxa conservação)</span></span><span>${fmt((pax.a+pax.k)*bp)}€</span></div>
       <div class="price-line"><span>Total</span><span>${fmt(total)}€</span></div>
     `;
   }
@@ -1345,34 +1360,39 @@
       if (!res.ok) throw new Error();
       const data = await res.json();
 
+      const isEN = window._lang === 'en';
       grid.innerHTML = data.items.map(item => {
         const badgeStyle = BADGE_STYLES[item.badge_type] || BADGE_STYLES.gold;
-        const priceUnit  = item.price_child
-          ? `/ adulto · ${fmtPrice(item.price_child)}€ criança`
-          : '/ pessoa';
-        const btnClass   = item.featured ? 'btn-pkg solid' : 'btn-pkg';
-        const cardClass  = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
-        const bookUrl    = data.booking_url;
+        const badge    = isEN ? (item.badge_en || item.badge) : item.badge;
+        const name     = isEN ? (item.name_en  || item.name)  : item.name;
+        const desc     = isEN ? (item.desc_en  || item.desc)  : item.desc;
+        const features = isEN ? (item.features_en || item.features) : item.features;
+        const priceUnit = item.price_child
+          ? (isEN ? `/ adult · ${fmtPrice(item.price_child)}€ child` : `/ adulto · ${fmtPrice(item.price_child)}€ criança`)
+          : (isEN ? '/ person' : '/ pessoa');
+        const btnClass  = item.featured ? 'btn-pkg solid' : 'btn-pkg';
+        const cardClass = item.featured ? 'pkg-card featured' : item.coming_soon ? 'pkg-card coming-soon' : 'pkg-card';
+        const bookUrl   = data.booking_url;
 
         const priceBlock = item.coming_soon
-          ? `<div class="pkg-price"><div class="pkg-from">Em breve</div></div>`
+          ? `<div class="pkg-price"><div class="pkg-from">${isEN ? 'Coming soon' : 'Em breve'}</div></div>`
           : `<div class="pkg-price">
-    <div class="pkg-from">A partir de</div>
+    <div class="pkg-from">${isEN ? 'From' : 'A partir de'}</div>
     <div><span class="pkg-amount">${fmtPrice(item.price_adult)}€</span> <span class="pkg-unit">${esc(priceUnit)}</span></div>
   </div>`;
 
         const ctaBlock = item.coming_soon
-          ? `<span class="btn-pkg btn-soon">Em Breve</span>`
-          : `<a href="${esc(bookUrl)}" class="${btnClass}">Reservar</a>`;
+          ? `<span class="btn-pkg btn-soon">${isEN ? 'Coming Soon' : 'Em Breve'}</span>`
+          : `<a href="${esc(bookUrl)}" class="${btnClass}">${isEN ? 'Book now' : 'Reservar'}</a>`;
 
         return `
 <div class="${cardClass}">
-  <span class="pkg-badge" style="${badgeStyle}">${esc(item.badge)}</span>
+  <span class="pkg-badge" style="${badgeStyle}">${esc(badge)}</span>
   <span class="pkg-icon"><i data-lucide="${esc(item.icon)}"></i></span>
-  <div class="pkg-name">${esc(item.name)}</div>
-  <div class="pkg-desc">${esc(item.desc)}</div>
+  <div class="pkg-name">${esc(name)}</div>
+  <div class="pkg-desc">${esc(desc)}</div>
   <ul class="pkg-list">
-    ${item.features.map(f => `<li>${esc(f)}</li>`).join('')}
+    ${features.map(f => `<li>${esc(f)}</li>`).join('')}
   </ul>
   ${priceBlock}
   ${ctaBlock}
@@ -1400,24 +1420,43 @@
     return 'ok';
   }
 
+  const SCHED_DAYS_EN = {
+    'Todos os dias': 'Every day',
+    'Dias de semana': 'Weekdays',
+    'Fim de semana': 'Weekends',
+    'Seg — Sex': 'Mon — Fri',
+    'Sáb + Dom': 'Sat + Sun'
+  };
+
   function renderScheduleCard(season) {
+    const isPeak = season.style === 'peak';
+    const isEN = window._lang === 'en';
+    const rows = (season.rows || []).map(row => {
+      const daysLabel = isEN ? (SCHED_DAYS_EN[row.days] || row.days) : row.days;
+      const daysSub   = row.days_sub ? (isEN ? (SCHED_DAYS_EN[row.days_sub] || row.days_sub) : row.days_sub) : null;
+      const chips = row.trips.map((t, i) => `
+        ${i > 0 ? '<div class="tc-divider"></div>' : ''}
+        <div class="time-chip${i > 0 ? ' secondary' : ''}">
+          <span class="t">${esc(t.depart)}</span>
+          <span class="arr">→</span>
+          <span class="t">${esc(t.return)}</span>
+        </div>`).join('');
+      return `
+    <div class="sched-trip-row">
+      <div class="sched-trip-label">
+        <span class="sched-trip-icon">${esc(row.icon)}</span>
+        <div class="sched-trip-days">${esc(daysLabel)}${daysSub ? `<span>${esc(daysSub)}</span>` : ''}</div>
+      </div>
+      <div class="sched-trip-times">${chips}</div>
+    </div>`;
+    }).join('');
     return `
-<div class="sched-card">
+<div class="sched-card${isPeak ? ' peak' : ''}">
   <div class="sched-head">
-    <div>
-      <div class="sched-season">${esc(season.emoji)} ${esc(season.name)}</div>
-      <div class="sched-dates">${esc(season.dates)}</div>
-      ${season.note ? `<div class="sched-note">${esc(season.note)}</div>` : ''}
-    </div>
+    <div class="sched-dates">${esc(season.dates)}</div>
+    <div class="sched-season">${esc(season.name)}</div>
   </div>
-  <div class="sched-rows">
-    ${season.departures.map(d => `
-    <div class="sched-row">
-      <span class="sched-time">${esc(d.time)}</span>
-      <span class="sched-dir">${esc(d.from)} <span class="sched-arrow">→</span> ${esc(d.to)}</span>
-      ${d.note ? `<span class="sched-tag low">${esc(d.note)}</span>` : `<span class="sched-tag ${esc(d.status)}">${SCHED_LABELS[d.status] || esc(d.status)}</span>`}
-    </div>`).join('')}
-  </div>
+  <div class="sched-rows">${rows}</div>
 </div>`;
   }
 
@@ -1443,7 +1482,7 @@
 
       if (data._meta?.updated) {
         const year = data._meta.updated.split('-')[0];
-        if (tag) tag.textContent = `Horários ${year}`;
+        if (tag) tag.textContent = window._lang === 'en' ? `${year} Schedule` : `Horários ${year}`;
       }
 
       grid.innerHTML = data.seasons.map(renderScheduleCard).join('');
@@ -1453,8 +1492,113 @@
     }
   }
 
+  // ─── TRANSLATIONS (PT / EN) ──────────────────────────────────────────────
+  const T = {
+    pt: {
+      'nav.schedule':'Horários','nav.packages':'Pacotes','nav.island':'A Ilha','nav.book':'Reservar agora →',
+      'hero.badge':'Património Mundial UNESCO','hero.h1a':'A travessia para a',
+      'hero.sub':'Há mais de 60 anos a levar famílias e aventureiros à reserva natural mais bonita de Portugal. A viagem já faz parte da experiência.',
+      'proof.passengers':'passageiros/ano','proof.years':'anos de travessias','proof.reviews':'avaliações',
+      'hero.book':'Reservar travessia','hero.see':'Ver a ilha',
+      'book.title':'Reservar travessia','book.sub':'Escolhe data · Confirma · Embarca',
+      'book.avail':'Disponível para reserva','book.spots':'Poucos lugares','book.loading':'A carregar datas…',
+      'book.roundtrip':'Ida e Volta (recomendado)','book.oneway':'→ Só Ida','book.return':'← Só Volta',
+      'book.adults':'Adultos','book.children':'Crianças','book.confirm':'Confirmar reserva',
+      'book.footer':'Pagamento seguro · Cancelamento gratuito 48h antes',
+      'trust.imt':'Operador Licenciado IMT','trust.imt.sub':'Autoridade Marítima Nacional',
+      'trust.insurance':'Seguro de Passageiros','trust.insurance.sub':'Cobertura total incluída',
+      'trust.ticket':'Bilhete Digital','trust.ticket.sub':'QR code no telemóvel',
+      'trust.cancel':'Cancelamento Gratuito','trust.cancel.sub':'Até 48h antes da partida',
+      'island.tag':'Reserva Natural','island.h2':'Uma ilha que <em>não se esquece</em>',
+      'island.desc':'A Berlenga é a única ilha habitada do arquipélago das Berlengas — Reserva da Biosfera da UNESCO desde 1984. Águas turquesa, falésias dramáticas, grutas marinhas e uma biodiversidade única em Portugal.',
+      'island.fact1':'de travessia desde Peniche','island.fact2':'de ilha para explorar',
+      'island.fact3':'Reserva da Biosfera','island.fact4':'Fortaleza histórica',
+      'pkg.tag':'O que queres fazer?','pkg.h2':'Escolhe a tua experiência',
+      'pkg.sub':'Desde a travessia simples até atividades na ilha — temos algo para cada aventureiro.',
+      'boat.tag':'A Nossa Embarcação',
+      'boat.desc':'Há mais de 60 anos a fazer a travessia Peniche–Berlenga. O maior barco desta rota, inspecionado anualmente pela Autoridade Marítima Nacional — com todos os equipamentos de segurança a bordo. Conforto e tranquilidade, mesmo quando o mar decide mostrar músculo.',
+      'boat.spec1':'passageiros capacidade máxima','boat.spec2':'travessia em condições normais',
+      'boat.spec3':'inspeção pela Autoridade Marítima','boat.spec4':'seguro de passageiros incluído',
+      'rev.tag':'Avaliações reais','rev.h2':'O que dizem os nossos passageiros',
+      'rev.sub':'Mais de 700 avaliações verificadas no Google. Escrito por famílias, casais e grupos que fizeram a travessia connosco.',
+      'sched.tag':'Horários 2026','sched.h2':'Saídas regulares de Peniche',
+      'sched.sub':'Os fins-de-semana de verão esgotam semanas antes. Reserva com antecedência.',
+      'dep.tag':'Ponto de partida','dep.h2':'Partimos de Peniche, cidade à beira-mar',
+      'dep.desc':'O Cais da Ribeira de Peniche é o ponto de embarque para todas as travessias. Chega 20 minutos antes da partida. Existe parque de estacionamento nas imediações.',
+      'dep.book':'Reservar travessia →',
+      'cap.tag':'Não percas a época','cap.h2':'Acesso antecipado a datas e promoções',
+      'cap.sub':'Recebe primeiro quando abrimos novos horários para 2026 — e preços exclusivos para quem está na lista.',
+      'cap.ph':'O teu email','cap.btn':'Quero ser avisado →',
+      'cap.note':'Sem spam. Só avisamos quando há datas novas ou promoções. Cancela quando quiseres.',
+      'faq.tag':'Perguntas frequentes','faq.h2':'Tudo o que precisas saber',
+      'foot.desc':'Operador marítimo licenciado há mais de 60 anos para travessias à Ilha da Berlenga. Comprometidos com a segurança dos passageiros e a conservação da Reserva Natural das Berlengas.',
+      'foot.travel':'Viagem','foot.help':'Ajuda'
+    },
+    en: {
+      'nav.schedule':'Schedules','nav.packages':'Packages','nav.island':'The Island','nav.book':'Book now →',
+      'hero.badge':'UNESCO World Heritage','hero.h1a':'Island tours to',
+      'hero.sub':'Over 60 years taking families and adventurers to the most beautiful nature reserve in Portugal. The journey is already part of the experience.',
+      'proof.passengers':'passengers/year','proof.years':'years of island tours','proof.reviews':'reviews',
+      'hero.book':'Book your tour','hero.see':'See the island',
+      'book.title':'Book your tour','book.sub':'Choose date · Confirm · Board',
+      'book.avail':'Available for booking','book.spots':'Few spots left','book.loading':'Loading dates…',
+      'book.roundtrip':'Return trip (recommended)','book.oneway':'→ One way','book.return':'← Return only',
+      'book.adults':'Adults','book.children':'Children','book.confirm':'Confirm booking',
+      'book.footer':'Secure payment · Free cancellation 48h before',
+      'trust.imt':'IMT Licensed Operator','trust.imt.sub':'National Maritime Authority',
+      'trust.insurance':'Passenger Insurance','trust.insurance.sub':'Full coverage included',
+      'trust.ticket':'Digital Ticket','trust.ticket.sub':'QR code on mobile',
+      'trust.cancel':'Free Cancellation','trust.cancel.sub':'Up to 48h before departure',
+      'island.tag':'Nature Reserve','island.h2':'An island you <em>won\'t forget</em>',
+      'island.desc':'Berlenga is the only inhabited island of the Berlengas archipelago — UNESCO Biosphere Reserve since 1984. Turquoise waters, dramatic cliffs, sea caves and unique biodiversity in Portugal.',
+      'island.fact1':'boat ride from Peniche','island.fact2':'of island to explore',
+      'island.fact3':'Biosphere Reserve','island.fact4':'Historic fortress',
+      'pkg.tag':'What do you want to do?','pkg.h2':'Choose your experience',
+      'pkg.sub':'From a day trip to island activities — we have something for every adventurer.',
+      'boat.tag':'Our Vessel',
+      'boat.desc':'Over 60 years running Berlenga Island tours. The largest boat on this route, annually inspected by the National Maritime Authority — with all safety equipment on board. Comfort and peace of mind, even when the sea shows its muscle.',
+      'boat.spec1':'maximum passenger capacity','boat.spec2':'boat ride in normal conditions',
+      'boat.spec3':'Maritime Authority inspection','boat.spec4':'passenger insurance included',
+      'rev.tag':'Real reviews','rev.h2':'What our passengers say',
+      'rev.sub':'Over 700 verified Google reviews. Written by families, couples and groups who crossed with us.',
+      'sched.tag':'2026 Schedule','sched.h2':'Regular departures from Peniche',
+      'sched.sub':'Summer weekends sell out weeks in advance. Book early.',
+      'dep.tag':'Departure point','dep.h2':'We depart from Peniche, a seaside city',
+      'dep.desc':'Cais da Ribeira in Peniche is the boarding point for all island tours. Arrive 20 minutes before departure. Parking is available nearby.',
+      'dep.book':'Book your tour →',
+      'cap.tag':'Don\'t miss the season','cap.h2':'Early access to dates and promotions',
+      'cap.sub':'Be first to know when we open new 2026 dates — and exclusive prices for those on the list.',
+      'cap.ph':'Your email','cap.btn':'Notify me →',
+      'cap.note':'No spam. We only notify when there are new dates or promotions. Unsubscribe anytime.',
+      'faq.tag':'Frequently asked questions','faq.h2':'Everything you need to know',
+      'foot.desc':'Licensed maritime operator for over 60 years running Berlenga Island tours. Committed to passenger safety and conservation of the Berlengas Nature Reserve.',
+      'foot.travel':'Travel','foot.help':'Help'
+    }
+  };
+
+  function setLang(lang) {
+    window._lang = lang;
+    localStorage.setItem('viamar_lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      const val = T[lang]?.[key];
+      if (val !== undefined) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const key = el.dataset.i18nPh;
+      const val = T[lang]?.[key];
+      if (val !== undefined) el.placeholder = val;
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    loadProducts();
+    loadSchedules();
+  }
+
   loadProducts();
   loadSchedules();
+  setLang(localStorage.getItem('viamar_lang') || 'pt');
   // ─────────────────────────────────────────────────────────────────────────
 
   // ─── FAREHARBOR INTEGRATION ──────────────────────────────────────────────

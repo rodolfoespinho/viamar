@@ -1,34 +1,89 @@
 {
   "_meta": {
-    "updated": "2026-04-01",
-    "source": "FareHarbor — viamar-berlenga (sync manual via dashboard calendar)",
-    "note": "Alta temporada: 2 partidas/dia todos os dias. Resto: 1 partida semana / 2 partidas fins de semana."
+    "updated": "2026-04-07",
+    "source": "Horário oficial Viamar 2026",
+    "note": "4 épocas. Cada row tem tipo de dia + pares partida→retorno."
   },
   "seasons": [
     {
-      "id": "alta",
-      "name": "Alta Temporada",
-      "emoji": "☀️",
-      "dates": "13 Julho — 6 Setembro 2026",
-      "note": "Dois horários diários, todos os dias",
-      "departures": [
-        { "time": "10h00", "from": "Peniche", "to": "Berlenga", "status": "ok" },
-        { "time": "12h00", "from": "Peniche", "to": "Berlenga", "status": "ok" },
-        { "time": "16h00", "from": "Berlenga", "to": "Peniche", "status": "ok" },
-        { "time": "18h00", "from": "Berlenga", "to": "Peniche", "status": "ok" }
+      "id": "epocabaixa",
+      "name": "Época Baixa",
+      "dates": "9 Maio — 5 Junho 2026",
+      "style": "default",
+      "rows": [
+        {
+          "days": "Todos os dias",
+          "icon": "📅",
+          "trips": [
+            { "depart": "11h00", "return": "17h00" }
+          ]
+        }
       ]
     },
     {
-      "id": "temporada",
-      "name": "Temporada",
-      "emoji": "⚓",
-      "dates": "9 Maio — 12 Julho & 7 — 30 Setembro 2026",
-      "note": "Fins de semana: 10h00 e 12h00 · Dias de semana: 11h00",
-      "departures": [
-        { "time": "10h00", "from": "Peniche", "to": "Berlenga", "status": "ok", "note": "Fim de semana" },
-        { "time": "11h00", "from": "Peniche", "to": "Berlenga", "status": "ok", "note": "Dias de semana" },
-        { "time": "12h00", "from": "Peniche", "to": "Berlenga", "status": "ok", "note": "Fim de semana" },
-        { "time": "17h00", "from": "Berlenga", "to": "Peniche", "status": "ok", "note": "Retorno" }
+      "id": "epocamedia1",
+      "name": "Época Média",
+      "dates": "6 Junho — 10 Julho 2026",
+      "style": "default",
+      "rows": [
+        {
+          "days": "Dias de semana",
+          "days_sub": "Seg — Sex",
+          "icon": "📅",
+          "trips": [
+            { "depart": "11h00", "return": "17h00" }
+          ]
+        },
+        {
+          "days": "Fim de semana",
+          "days_sub": "Sáb + Dom",
+          "icon": "🌊",
+          "trips": [
+            { "depart": "10h00", "return": "16h00" },
+            { "depart": "12h00", "return": "18h00" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epocaalta",
+      "name": "Época Alta",
+      "dates": "11 Julho — 6 Setembro 2026",
+      "style": "peak",
+      "rows": [
+        {
+          "days": "Todos os dias",
+          "icon": "☀️",
+          "trips": [
+            { "depart": "10h00", "return": "16h00" },
+            { "depart": "12h00", "return": "18h00" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epocamedia2",
+      "name": "Época Média",
+      "dates": "7 — 30 Setembro 2026",
+      "style": "default",
+      "rows": [
+        {
+          "days": "Dias de semana",
+          "days_sub": "Seg — Sex",
+          "icon": "📅",
+          "trips": [
+            { "depart": "11h00", "return": "17h00" }
+          ]
+        },
+        {
+          "days": "Fim de semana",
+          "days_sub": "Sáb + Dom",
+          "icon": "🌊",
+          "trips": [
+            { "depart": "10h00", "return": "16h00" },
+            { "depart": "12h00", "return": "18h00" }
+          ]
+        }
       ]
     }
   ]
